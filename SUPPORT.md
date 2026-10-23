@@ -4,6 +4,8 @@
 
 | Problem | What to check |
 | ------- | ------------- |
+| A WhatsApp Setup step failed | The step's message gives the reason. Fix it and click **Run Setup Again**. |
+| Connect with Facebook is greyed out | Set **Hub URL** in WhatsApp Settings, or use **Enter App Details**. |
 | Incoming messages do not arrive | The callback URL and verify token in Meta; Subscribe App to Webhooks; the `messages` field is subscribed; the account is enabled. |
 | Webhook calls get HTTP 403 | The App Secret on the WhatsApp Account must be the one of the Meta app. |
 | A template is missing in the lists | Only Approved templates can be sent; click Sync from Meta. |

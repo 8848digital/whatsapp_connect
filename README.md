@@ -19,11 +19,51 @@ WhatsApp Flows. It works on Frappe 14, 15 and 16, with or without ERPNext.
 | **License** | MIT |
 | **Maintained by** | [8848 Digital LLP](https://8848digital.com) |
 
+## Quick start
+
+You need a Frappe or ERPNext site on Frappe 14, 15 or 16 that is reachable
+from the internet over `https://`, and a phone number for WhatsApp Business
+that can receive an SMS or a call.
+
+**1. Install the app**
+
+```bash
+bench get-app https://github.com/8848digital/whatsapp_connect
+bench --site <your-site> install-app whatsapp_connect
+```
+
+**2. Connect your number**
+
+Open **WhatsApp Setup** (type it in the search bar) and click **Connect with
+Facebook**. Log in, choose or create your business, add your number and type
+the code that WhatsApp sends. The page does the rest: it registers the
+number, connects webhooks and syncs your templates.
+
+![WhatsApp Setup page](docs/images/setup.png)
+
+> Already have a Meta app? Click **Enter App Details** instead and enter the
+> App ID, App Secret and a system user token. The page finds your numbers
+> and sets the webhook for you.
+
+**3. Test it**
+
+Click **Test** next to your number. Send `hello_world` to your mobile, then
+send a message from your phone and click **Check Incoming**.
+
+**4. Start sending**
+
+Open any document, for example a Customer or a Sales Invoice, and click
+**⋯ > Send WhatsApp**. To send messages automatically, create a
+**WhatsApp Notification** (see the [user guide](docs/user-guide.md)).
+
+Something did not work? Each setup step shows the reason; see
+[Troubleshooting](#troubleshooting).
+
 ## Key DocTypes
 
 | DocType | Owned by this app? | Purpose |
 | ------- | ------------------ | ------- |
-| WhatsApp Account | Yes | A WhatsApp Business phone number connected through a Meta app. |
+| WhatsApp Account | Yes | A WhatsApp Business phone number connected through a Meta app. The WhatsApp Setup page creates it. |
 | WhatsApp Settings | Yes | App-wide settings: webhook signature policy, default country code, log retention, phone source for users. |
 | WhatsApp Message | Yes | Every message sent or received, with its delivery status and Meta's error. |
 | WhatsApp Profile | Yes | One customer number: WhatsApp name, linked Contact, opt-out state, last message time. |
@@ -34,9 +74,13 @@ WhatsApp Flows. It works on Frappe 14, 15 and 16, with or without ERPNext.
 | WhatsApp Flow | Yes | Screens of forms that customers fill inside WhatsApp. |
 | WhatsApp Flow Response | Yes | The answers of one customer to a flow. |
 | WhatsApp Log | Yes | Graph API calls and webhook calls, for troubleshooting. |
+| WhatsApp Hub Settings, WhatsApp Hub Connection | Yes | Only on the 8848 hub site, which runs Connect with Facebook for all sites. |
 
 ## Features
 
+- **Setup from ERPNext.** The WhatsApp Setup page connects a number with
+  Facebook login (or your own Meta app), sets up webhooks, syncs templates
+  and tests sending and receiving. No Meta App Dashboard work.
 - **Send from any document.** **⋯ > Send WhatsApp** on every form offers the
   document's and its contacts' numbers, sends an approved template with a
   preview filled from the document, or a free-text reply within 24 hours of
@@ -96,9 +140,10 @@ guide in [docs/user-guide.md](docs/user-guide.md).
 
 ## Integrations
 
-- **Meta WhatsApp Business Platform (Cloud API)**: see [SETUP.md](./SETUP.md#meta-whatsapp-cloud-api)
-- **Meta webhooks**: see [SETUP.md](./SETUP.md#webhooks)
+- **Meta WhatsApp Business Platform (Cloud API)**: connected by the WhatsApp Setup page; details in [SETUP.md](./SETUP.md#whatsapp-setup-page)
+- **Meta webhooks**: set by the setup page; manual values in [SETUP.md](./SETUP.md#webhooks)
 - **WhatsApp Flows data endpoint** (optional): see [SETUP.md](./SETUP.md#whatsapp-flows-data-endpoint-optional)
+- **WhatsApp hub** (8848 Digital): see [docs/hub-setup.md](docs/hub-setup.md)
 
 ## Installation
 
@@ -107,7 +152,19 @@ bench get-app https://github.com/8848digital/whatsapp_connect
 bench --site <site_name> install-app whatsapp_connect
 ```
 
-Then follow [SETUP.md](./SETUP.md).
+Then open **WhatsApp Setup** (see [Quick start](#quick-start)). On Frappe
+Cloud, install the app from the Marketplace and open the same page.
+
+## Troubleshooting
+
+| Problem | What to do |
+| ------- | ---------- |
+| **Connect with Facebook** is greyed out | Set **Hub URL** in WhatsApp Settings, or use **Enter App Details**. |
+| A setup step shows **Failed** | Read its message, fix the cause, and click **Run Setup Again**. |
+| "Meta can only call a site on the internet over https://" | The site must have a public HTTPS address. Set `host_name` in the site config. |
+| **Check Incoming** finds nothing | Open **WhatsApp Log**: no webhook call means Meta cannot reach the site. |
+| The test message is refused | The number may need to be registered, or the recipient number is wrong. Open the message in **WhatsApp Message** for Meta's reason. |
+| More | [SUPPORT.md](SUPPORT.md) |
 
 ## App Structure
 
