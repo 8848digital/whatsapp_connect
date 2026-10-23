@@ -13,6 +13,7 @@
   "message_type",
   "wamid",
   "source",
+  "campaign",
   "content_section",
   "body",
   "attachment",
@@ -111,6 +112,13 @@
    "label": "Source",
    "read_only": 1,
    "description": "What created the message, for example a notification or a campaign."
+  },
+  {
+   "fieldname": "campaign",
+   "fieldtype": "Data",
+   "label": "Campaign",
+   "read_only": 1,
+   "search_index": 1
   },
   {
    "fieldname": "content_section",

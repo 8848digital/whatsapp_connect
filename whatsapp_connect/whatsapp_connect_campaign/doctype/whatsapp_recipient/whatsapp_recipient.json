@@ -1,0 +1,60 @@
+{
+ "actions": [],
+ "creation": "2026-10-23 18:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "phone_number",
+  "recipient_name",
+  "variables",
+  "reference_doctype",
+  "reference_name"
+ ],
+ "fields": [
+  {
+   "fieldname": "phone_number",
+   "fieldtype": "Data",
+   "label": "Phone Number",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "recipient_name",
+   "fieldtype": "Data",
+   "label": "Name",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "variables",
+   "fieldtype": "Small Text",
+   "label": "Variables",
+   "in_list_view": 1,
+   "description": "Values for {{1}}, {{2}}..., separated by |"
+  },
+  {
+   "fieldname": "reference_doctype",
+   "fieldtype": "Link",
+   "label": "Document Type",
+   "options": "DocType"
+  },
+  {
+   "fieldname": "reference_name",
+   "fieldtype": "Dynamic Link",
+   "label": "Document",
+   "options": "reference_doctype"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-10-23 18:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "WhatsApp Connect Campaign",
+ "name": "WhatsApp Recipient",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "istable": 1,
+ "editable_grid": 1
+}
