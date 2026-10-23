@@ -47,3 +47,98 @@
 	padding: 8px 10px;
 	text-align: center;
 }
+
+/* WhatsApp Setup page */
+.wac-setup {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+	max-width: 960px;
+	padding: 8px 0 32px;
+}
+.wac-setup h4 {
+	margin: 8px 0 0;
+}
+.wac-setup-lead {
+	font-size: 15px;
+	line-height: 22px;
+	color: var(--text-color);
+}
+.wac-setup-list {
+	display: flex;
+	flex-direction: column;
+	border-top: 1px solid var(--border-color);
+}
+.wac-setup-row {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	padding: 10px 0;
+	border-bottom: 1px solid var(--border-color);
+}
+.wac-setup-row .indicator-pill {
+	width: 84px;
+	flex-shrink: 0;
+	justify-content: center;
+}
+.wac-setup-name {
+	width: 220px;
+	flex-shrink: 0;
+	font-weight: 500;
+}
+.wac-setup-number {
+	width: 160px;
+	flex-shrink: 0;
+}
+.wac-setup-message {
+	flex: 1;
+	color: var(--text-muted);
+}
+.wac-setup-actions {
+	display: flex;
+	gap: 8px;
+	margin-left: auto;
+}
+.wac-setup-choices {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 16px;
+}
+.wac-setup-choice {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 10px;
+	padding: 20px;
+	border: 1px solid var(--border-color);
+	border-radius: var(--border-radius-lg, 8px);
+}
+.wac-setup-choice h5 {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin: 0;
+	font-size: 15px;
+}
+.wac-setup-choice p {
+	margin: 0;
+	line-height: 20px;
+}
+.wac-setup-check {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	font-weight: normal;
+}
+@media (max-width: 768px) {
+	.wac-setup-choices {
+		grid-template-columns: 1fr;
+	}
+	.wac-setup-row {
+		flex-wrap: wrap;
+	}
+	.wac-setup-name,
+	.wac-setup-number {
+		width: auto;
+	}
+}

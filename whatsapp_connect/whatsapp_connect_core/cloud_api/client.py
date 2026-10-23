@@ -127,7 +127,14 @@ class CloudAPI:
 		return {"Authorization": f"Bearer {self.token}"}
 
 	def request(
-		self, method: str, path: str, json_body=None, data=None, files=None, params=None
+		self,
+		method: str,
+		path: str,
+		json_body=None,
+		data=None,
+		files=None,
+		params=None,
+		log_body: bool = True,
 	) -> dict:
 		"""
 		Call the Graph API, log the call, and raise CloudAPIError on an error answer.
@@ -139,11 +146,13 @@ class CloudAPI:
 		        data (dict, optional): Form fields, for multipart uploads.
 		        files (dict, optional): Files, for multipart uploads.
 		        params (dict, optional): Query string parameters.
+		        log_body (bool, optional): False keeps the body (for example a PIN) out of WhatsApp Log.
 
 		Returns:
 		        dict: The decoded JSON answer.
 		"""
 		url = f"{self.base_url}/{path.lstrip('/')}"
+		logged_body = (json_body or data) if log_body else None
 		try:
 			response = requests.request(
 				method,
@@ -156,7 +165,7 @@ class CloudAPI:
 				timeout=TIMEOUT_SECONDS,
 			)
 		except requests.RequestException as exc:
-			log_request(self.account.name, method, path, json_body or data, None, None, str(exc))
+			log_request(self.account.name, method, path, logged_body, None, None, str(exc))
 			raise CloudAPIError(_("Could not reach the WhatsApp Cloud API"), details=str(exc)) from exc
 
 		answer = self.__decode(response)
@@ -165,7 +174,7 @@ class CloudAPI:
 			self.account.name,
 			method,
 			path,
-			json_body or data,
+			logged_body,
 			response.status_code,
 			answer,
 			error and error.get("message"),

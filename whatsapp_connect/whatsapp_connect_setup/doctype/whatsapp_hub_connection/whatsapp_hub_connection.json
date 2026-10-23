@@ -1,0 +1,188 @@
+{
+ "actions": [],
+ "creation": "2026-10-23 18:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "status",
+  "site_url",
+  "callback_url",
+  "flow_url",
+  "coexistence",
+  "column_break_meta",
+  "waba_id",
+  "phone_number_id",
+  "display_phone_number",
+  "verified_name",
+  "signup_event",
+  "secrets_section",
+  "claim_secret_hash",
+  "access_token",
+  "forward_secret",
+  "forwarding_section",
+  "last_forwarded_on",
+  "failed_forwards",
+  "column_break_forwarding",
+  "last_error"
+ ],
+ "fields": [
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Pending\nConnected\nClaimed\nDisconnected",
+   "default": "Pending",
+   "read_only": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "site_url",
+   "fieldtype": "Data",
+   "label": "Site URL",
+   "read_only": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "length": 255
+  },
+  {
+   "fieldname": "callback_url",
+   "fieldtype": "Data",
+   "label": "Webhook URL",
+   "read_only": 1,
+   "length": 255
+  },
+  {
+   "fieldname": "flow_url",
+   "fieldtype": "Data",
+   "label": "Flow Endpoint URL",
+   "read_only": 1,
+   "length": 255
+  },
+  {
+   "fieldname": "coexistence",
+   "fieldtype": "Check",
+   "label": "WhatsApp Business App Number",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_meta",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "waba_id",
+   "fieldtype": "Data",
+   "label": "WhatsApp Business Account ID",
+   "read_only": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "phone_number_id",
+   "fieldtype": "Data",
+   "label": "Phone Number ID",
+   "read_only": 1
+  },
+  {
+   "fieldname": "display_phone_number",
+   "fieldtype": "Data",
+   "label": "Phone Number",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "verified_name",
+   "fieldtype": "Data",
+   "label": "Business Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "signup_event",
+   "fieldtype": "Data",
+   "label": "Signup Result",
+   "read_only": 1
+  },
+  {
+   "fieldname": "secrets_section",
+   "fieldtype": "Section Break",
+   "label": "Secrets",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "claim_secret_hash",
+   "fieldtype": "Data",
+   "label": "Claim Secret Hash",
+   "read_only": 1,
+   "hidden": 1
+  },
+  {
+   "fieldname": "access_token",
+   "fieldtype": "Password",
+   "label": "Business Token",
+   "read_only": 1,
+   "description": "Deleted when the site claims the connection."
+  },
+  {
+   "fieldname": "forward_secret",
+   "fieldtype": "Password",
+   "label": "Forwarding Secret",
+   "read_only": 1
+  },
+  {
+   "fieldname": "forwarding_section",
+   "fieldtype": "Section Break",
+   "label": "Forwarding"
+  },
+  {
+   "fieldname": "last_forwarded_on",
+   "fieldtype": "Datetime",
+   "label": "Last Forwarded On",
+   "read_only": 1
+  },
+  {
+   "fieldname": "failed_forwards",
+   "fieldtype": "Int",
+   "label": "Failed Forwards",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_forwarding",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "last_error",
+   "fieldtype": "Small Text",
+   "label": "Last Error",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-10-23 18:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "WhatsApp Connect Setup",
+ "name": "WhatsApp Hub Connection",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "autoname": "Prompt",
+ "naming_rule": "Set by user",
+ "title_field": "site_url",
+ "search_fields": "site_url,display_phone_number",
+ "description": "A site that connected WhatsApp through this hub.",
+ "track_changes": 1
+}

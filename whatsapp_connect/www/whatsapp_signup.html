@@ -1,0 +1,156 @@
+{% extends "templates/web.html" %}
+
+{% block page_content %}
+<div class="wac-signup">
+	<h1>{{ _("Connect WhatsApp") }}</h1>
+	{% if error %}
+	<p class="wac-signup-error">{{ error }}</p>
+	{% else %}
+	<p>
+		{{ _("Log in with Facebook to connect a WhatsApp Business number to {0}.").format(site_host) }}
+		{{ _("In the Meta window, choose or create your business, then add and verify your number.") }}
+	</p>
+	<button class="btn btn-primary btn-lg" id="wac-signup-button">{{ _("Continue with Facebook") }}</button>
+	<p class="wac-signup-status" id="wac-signup-status" role="status"></p>
+	{% endif %}
+</div>
+<style>
+	.wac-signup { max-width: 560px; margin: 64px auto; display: flex; flex-direction: column; gap: 16px; }
+	.wac-signup p { font-size: 16px; line-height: 24px; }
+	.wac-signup-error { color: var(--red-600, #c0392b); }
+	.wac-signup-status { min-height: 24px; }
+</style>
+{% endblock %}
+
+{% block script %}
+{% if not error %}
+<script>
+	(function () {
+		const config = {
+			appId: {{ app_id | tojson }},
+			configId: {{ config_id | tojson }},
+			version: {{ graph_api_version | tojson }},
+			session: {{ session | tojson }},
+			siteOrigin: {{ site_origin | tojson }},
+			coexistence: {{ coexistence | tojson }},
+		};
+		const status = document.getElementById("wac-signup-status");
+		const button = document.getElementById("wac-signup-button");
+		let signup = null;
+
+		function show(text) {
+			status.textContent = text;
+		}
+
+		// Meta posts the chosen business account and number to this window.
+		window.addEventListener("message", (event) => {
+			let host = "";
+			try {
+				host = new URL(event.origin).hostname;
+			} catch (e) {
+				return;
+			}
+			if (host !== "facebook.com" && !host.endsWith(".facebook.com")) return;
+			let data;
+			try {
+				data = JSON.parse(event.data);
+			} catch (e) {
+				return;
+			}
+			if (data.type !== "WA_EMBEDDED_SIGNUP") return;
+			if (String(data.event).startsWith("FINISH")) {
+				signup = Object.assign({ event: data.event }, data.data);
+			} else if (data.event === "CANCEL") {
+				show({{ _("The signup was stopped at: ") | tojson }} + (data.data.current_step || ""));
+			} else if (data.event === "ERROR") {
+				show(data.data.error_message || {{ _("Meta reported an error") | tojson }});
+			}
+		});
+
+		function waitForSignup(tries) {
+			return new Promise((resolve) => {
+				const check = (left) => {
+					if (signup || left <= 0) return resolve(signup);
+					setTimeout(() => check(left - 1), 250);
+				};
+				check(tries);
+			});
+		}
+
+		async function finish(code) {
+			show({{ _("Connecting your number...") | tojson }});
+			const chosen = await waitForSignup(20);
+			if (!chosen) {
+				show({{ _("Meta did not send the chosen number. Try again.") | tojson }});
+				button.disabled = false;
+				return;
+			}
+			const response = await fetch("/api/method/whatsapp_connect.whatsapp_connect_setup.api.v1.hub.finish", {
+				method: "POST",
+				headers: { "Content-Type": "application/json", Accept: "application/json" },
+				body: JSON.stringify({
+					session: config.session,
+					code: code,
+					waba_id: chosen.waba_id,
+					phone_number_id: chosen.phone_number_id,
+					event: chosen.event,
+				}),
+			});
+			const answer = await response.json().catch(() => ({}));
+			if (!response.ok || !(answer.message && answer.message.status)) {
+				let text = {{ _("The connection failed.") | tojson }};
+				try {
+					text = JSON.parse(JSON.parse(answer._server_messages)[0]).message;
+				} catch (e) {}
+				show(text);
+				button.disabled = false;
+				return;
+			}
+			show({{ _("Connected. You can close this window and go back to your site.") | tojson }});
+			if (window.opener) {
+				window.opener.postMessage(
+					{ type: "whatsapp_connect_signup", session: config.session, status: "connected" },
+					config.siteOrigin
+				);
+				setTimeout(() => window.close(), 1500);
+			}
+		}
+
+		window.fbAsyncInit = function () {
+			FB.init({ appId: config.appId, autoLogAppEvents: true, xfbml: false, version: config.version });
+		};
+
+		button.addEventListener("click", () => {
+			if (!window.FB) {
+				show({{ _("The Facebook script did not load. Turn off blockers and reload the page.") | tojson }});
+				return;
+			}
+			button.disabled = true;
+			signup = null;
+			show("");
+			FB.login(
+				(response) => {
+					if (response.authResponse && response.authResponse.code) {
+						finish(response.authResponse.code);
+					} else {
+						show({{ _("The Meta window was closed before the end.") | tojson }});
+						button.disabled = false;
+					}
+				},
+				{
+					config_id: config.configId,
+					response_type: "code",
+					override_default_response_type: true,
+					extras: {
+						setup: {},
+						featureType: config.coexistence ? "whatsapp_business_app_onboarding" : "",
+						sessionInfoVersion: "3",
+					},
+				}
+			);
+		});
+	})();
+</script>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+{% endif %}
+{% endblock %}
