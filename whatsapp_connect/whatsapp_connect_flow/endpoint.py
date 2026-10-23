@@ -90,7 +90,7 @@ def __default_answer(request: dict, flow: str | None) -> dict:
 	        dict: The answer object.
 	"""
 	screens = (
-		[row.screen_id for row in frappe.get_cached_doc("WhatsApp Flow", flow).screens] if flow else []
+		[row.screen_id for row in frappe.get_doc("WhatsApp Flow", flow).screens] if flow else []
 	)
 	data = request.get("data") or {}
 	current = request.get("screen")

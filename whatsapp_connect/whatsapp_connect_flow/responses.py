@@ -80,7 +80,7 @@ def __create_document(response, flow: str, answers: dict) -> None:
 	Returns:
 	        None
 	"""
-	settings = frappe.get_cached_doc("WhatsApp Flow", flow)
+	settings = frappe.get_doc("WhatsApp Flow", flow)
 	if not settings.target_doctype:
 		return
 	values = {
