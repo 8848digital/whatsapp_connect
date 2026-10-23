@@ -79,7 +79,12 @@ additional_timeline_content = {
 # whatsapp_connect_webhook_fields = {"<webhook field>": "<dotted.path>"}
 whatsapp_connect_payload_builders = {
 	"template": "whatsapp_connect.whatsapp_connect_core.messaging.template_payload.build_template_object",
+	"flow": "whatsapp_connect.whatsapp_connect_flow.sending.build_flow_object",
 }
+# Called with each saved incoming WhatsApp Message.
+whatsapp_connect_incoming_handlers = [
+	"whatsapp_connect.whatsapp_connect_flow.responses.handle_incoming"
+]
 
 # after_request is not wired: the webhook verification and the Flow endpoint
 # must answer Meta in plain text, which the response formatter would try to

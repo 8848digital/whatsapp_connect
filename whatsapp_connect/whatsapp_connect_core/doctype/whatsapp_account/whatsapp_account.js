@@ -20,6 +20,25 @@ frappe.ui.form.on("WhatsApp Account", {
 			</div>`);
 
 		if (!frm.is_new()) {
+			frm.add_custom_button(__("Generate Flow Keys"), () => {
+				frappe.confirm(
+					__("Create a new key pair for WhatsApp Flows and register it in Meta?"),
+					() =>
+						frappe.call({
+							method: "whatsapp_connect.whatsapp_connect_flow.api.v1.flow.generate_keys",
+							args: { account: frm.doc.name },
+							freeze: true,
+							callback: (r) => {
+								if (r.message)
+									frappe.show_alert({
+										message: r.message.message,
+										indicator: "green",
+									});
+								frm.reload_doc();
+							},
+						})
+				);
+			});
 			frm.add_custom_button(__("Subscribe App to Webhooks"), () => {
 				frappe.call({
 					method: "whatsapp_connect.whatsapp_connect_core.api.v1.account.subscribe_app",

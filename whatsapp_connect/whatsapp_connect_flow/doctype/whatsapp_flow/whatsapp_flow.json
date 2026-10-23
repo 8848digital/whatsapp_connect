@@ -1,0 +1,194 @@
+{
+ "actions": [],
+ "creation": "2026-10-23 18:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "flow_name",
+  "whatsapp_account",
+  "category",
+  "cta",
+  "column_break_status",
+  "status",
+  "meta_flow_id",
+  "preview_url",
+  "validation_errors",
+  "use_endpoint",
+  "screens_section",
+  "screens",
+  "components",
+  "answers_section",
+  "target_doctype",
+  "json_section",
+  "edit_json",
+  "flow_json"
+ ],
+ "fields": [
+  {
+   "fieldname": "flow_name",
+   "fieldtype": "Data",
+   "label": "Flow Name",
+   "reqd": 1,
+   "unique": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "whatsapp_account",
+   "fieldtype": "Link",
+   "label": "WhatsApp Account",
+   "options": "WhatsApp Account",
+   "reqd": 1
+  },
+  {
+   "fieldname": "category",
+   "fieldtype": "Select",
+   "label": "Category",
+   "options": "OTHER\nSIGN_UP\nSIGN_IN\nAPPOINTMENT_BOOKING\nLEAD_GENERATION\nCONTACT_US\nCUSTOMER_SUPPORT\nSURVEY",
+   "default": "OTHER",
+   "reqd": 1
+  },
+  {
+   "fieldname": "cta",
+   "fieldtype": "Data",
+   "label": "Button Text",
+   "default": "Open",
+   "description": "Text of the button that opens the flow, up to 30 characters."
+  },
+  {
+   "fieldname": "column_break_status",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Draft\nPublished\nDeprecated\nBlocked\nThrottled",
+   "default": "Draft",
+   "read_only": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "meta_flow_id",
+   "fieldtype": "Data",
+   "label": "Meta Flow ID",
+   "read_only": 1
+  },
+  {
+   "fieldname": "preview_url",
+   "fieldtype": "Data",
+   "label": "Preview URL",
+   "read_only": 1,
+   "options": "URL"
+  },
+  {
+   "fieldname": "validation_errors",
+   "fieldtype": "Small Text",
+   "label": "Meta Validation Errors",
+   "read_only": 1,
+   "depends_on": "validation_errors"
+  },
+  {
+   "fieldname": "use_endpoint",
+   "fieldtype": "Check",
+   "label": "Use Data Endpoint",
+   "description": "Meta calls this site between screens (encrypted). Needs the account's Flow keys."
+  },
+  {
+   "fieldname": "screens_section",
+   "fieldtype": "Section Break",
+   "label": "Screens"
+  },
+  {
+   "fieldname": "screens",
+   "fieldtype": "Table",
+   "label": "Screens",
+   "options": "WhatsApp Flow Screen"
+  },
+  {
+   "fieldname": "components",
+   "fieldtype": "Table",
+   "label": "Components",
+   "options": "WhatsApp Flow Component"
+  },
+  {
+   "fieldname": "answers_section",
+   "fieldtype": "Section Break",
+   "label": "Answers"
+  },
+  {
+   "fieldname": "target_doctype",
+   "fieldtype": "Link",
+   "label": "Save Answers To",
+   "options": "DocType",
+   "description": "Optional. Each answer creates a document of this type, with the fields set in Save to Field."
+  },
+  {
+   "fieldname": "json_section",
+   "fieldtype": "Section Break",
+   "label": "Flow JSON",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "edit_json",
+   "fieldtype": "Check",
+   "label": "Edit Flow JSON Directly",
+   "description": "Write the Flow JSON yourself, for example from Meta's Flow Builder. Screens and components are then not used."
+  },
+  {
+   "fieldname": "flow_json",
+   "fieldtype": "Code",
+   "label": "Flow JSON",
+   "options": "JSON",
+   "read_only_depends_on": "eval:!doc.edit_json"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-10-23 18:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "WhatsApp Connect Flow",
+ "name": "WhatsApp Flow",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1
+  },
+  {
+   "role": "WhatsApp Manager",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1
+  },
+  {
+   "role": "WhatsApp User",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "autoname": "field:flow_name",
+ "naming_rule": "By fieldname",
+ "track_changes": 1
+}

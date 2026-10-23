@@ -1,0 +1,100 @@
+{
+ "actions": [],
+ "creation": "2026-10-23 18:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "screen_id",
+  "component_type",
+  "field_name",
+  "label",
+  "required",
+  "input_type",
+  "choices",
+  "helper_text",
+  "target_field"
+ ],
+ "fields": [
+  {
+   "fieldname": "screen_id",
+   "fieldtype": "Data",
+   "label": "Screen ID",
+   "reqd": 1,
+   "in_list_view": 1,
+   "columns": 1
+  },
+  {
+   "fieldname": "component_type",
+   "fieldtype": "Select",
+   "label": "Type",
+   "options": "TextHeading\nTextSubheading\nTextBody\nTextCaption\nTextInput\nTextArea\nDatePicker\nDropdown\nRadioButtonsGroup\nCheckboxGroup\nOptIn",
+   "reqd": 1,
+   "in_list_view": 1,
+   "columns": 2
+  },
+  {
+   "fieldname": "field_name",
+   "fieldtype": "Data",
+   "label": "Field Name",
+   "in_list_view": 1,
+   "columns": 1,
+   "description": "Name of the answer, for example email. Not used for text components."
+  },
+  {
+   "fieldname": "label",
+   "fieldtype": "Data",
+   "label": "Label or Text",
+   "reqd": 1,
+   "in_list_view": 1,
+   "columns": 3
+  },
+  {
+   "fieldname": "required",
+   "fieldtype": "Check",
+   "label": "Required",
+   "in_list_view": 1,
+   "columns": 1
+  },
+  {
+   "fieldname": "input_type",
+   "fieldtype": "Select",
+   "label": "Input Type",
+   "options": "text\nnumber\nemail\npassword\npasscode\nphone",
+   "default": "text",
+   "depends_on": "eval:doc.component_type=='TextInput'"
+  },
+  {
+   "fieldname": "choices",
+   "fieldtype": "Small Text",
+   "label": "Choices",
+   "depends_on": "eval:['Dropdown','RadioButtonsGroup','CheckboxGroup'].includes(doc.component_type)",
+   "description": "One choice per line; use id|Title to set an ID."
+  },
+  {
+   "fieldname": "helper_text",
+   "fieldtype": "Data",
+   "label": "Helper Text"
+  },
+  {
+   "fieldname": "target_field",
+   "fieldtype": "Data",
+   "label": "Save to Field",
+   "in_list_view": 1,
+   "columns": 2,
+   "description": "Field of the flow's Save Answers To doctype."
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-10-23 18:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "WhatsApp Connect Flow",
+ "name": "WhatsApp Flow Component",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "istable": 1,
+ "editable_grid": 1
+}

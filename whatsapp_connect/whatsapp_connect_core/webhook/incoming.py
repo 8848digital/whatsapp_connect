@@ -92,6 +92,9 @@ class IncomingMessage:
 				message_name=message.name,
 				enqueue_after_commit=True,
 			)
+		# Other modules act on incoming messages, for example Flow answers.
+		for path in frappe.get_hooks("whatsapp_connect_incoming_handlers"):
+			frappe.get_attr(path)(message)
 		if frappe.db.get_value("WhatsApp Account", self.account, "send_read_receipts"):
 			frappe.enqueue(
 				"whatsapp_connect.whatsapp_connect_core.doctype.whatsapp_message.message_utils.send_read_receipt",

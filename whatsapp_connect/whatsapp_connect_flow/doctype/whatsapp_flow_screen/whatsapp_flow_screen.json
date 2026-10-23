@@ -1,0 +1,51 @@
+{
+ "actions": [],
+ "creation": "2026-10-23 18:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "screen_id",
+  "title",
+  "footer_label"
+ ],
+ "fields": [
+  {
+   "fieldname": "screen_id",
+   "fieldtype": "Data",
+   "label": "Screen ID",
+   "reqd": 1,
+   "in_list_view": 1,
+   "columns": 2,
+   "description": "Capital letters, digits and underscores, for example WELCOME."
+  },
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "label": "Title",
+   "reqd": 1,
+   "in_list_view": 1,
+   "columns": 3
+  },
+  {
+   "fieldname": "footer_label",
+   "fieldtype": "Data",
+   "label": "Button Label",
+   "in_list_view": 1,
+   "columns": 2,
+   "description": "Default: Continue, or Submit on the last screen."
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-10-23 18:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "WhatsApp Connect Flow",
+ "name": "WhatsApp Flow Screen",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "istable": 1,
+ "editable_grid": 1
+}
