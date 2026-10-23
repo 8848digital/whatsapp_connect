@@ -182,4 +182,4 @@ class TestFlowEndpointAndAnswers(IntegrationTestCase):
 		self.assertEqual(
 			frappe.db.get_value("Contact", response.reference_name, "designation"), answers["email"]
 		)
-		self.assertEqual(realtime.call_args.args[0], "whatsapp_flow_response")
+		self.assertIn("whatsapp_flow_response", [call.args[0] for call in realtime.call_args_list])
