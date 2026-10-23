@@ -78,7 +78,14 @@ jobs:
           bench new-site test.localhost --db-root-username root --db-root-password root \
             --admin-password admin --install-app erpnext --install-app whatsapp_connect
           bench --site test.localhost set-config allow_tests true
-          bench --site test.localhost execute erpnext.setup.utils.before_tests
+
+      # ERPNext 14 and 15 need a company for their test records; the v15 test
+      # runner calls only the tested app's before_tests hooks. ERPNext 16 sets
+      # this up in its own test environment.
+      - name: Set up ERPNext test data
+        if: matrix.frappe != 'version-16'
+        working-directory: /home/runner/frappe-bench
+        run: bench --site test.localhost execute erpnext.setup.utils.before_tests
 
       - name: Run tests
         working-directory: /home/runner/frappe-bench
