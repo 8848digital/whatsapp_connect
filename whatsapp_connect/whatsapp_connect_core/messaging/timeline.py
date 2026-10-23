@@ -11,7 +11,16 @@ from whatsapp_connect.whatsapp_connect_core.messaging.contact_link import get_li
 
 TIMELINE_LIMIT = 50
 PREVIEW_LENGTH = 300
-FIELDS = ["name", "direction", "phone_number", "status", "message_type", "body", "creation"]
+FIELDS = [
+	"name",
+	"direction",
+	"phone_number",
+	"status",
+	"message_type",
+	"body",
+	"template",
+	"creation",
+]
 
 
 def get_timeline_content(doctype: str, docname: str) -> list[dict]:
@@ -76,7 +85,10 @@ def __card(message) -> dict:
 	text = strip_html_tags(message.body or "").strip()
 	if len(text) > PREVIEW_LENGTH:
 		text = text[:PREVIEW_LENGTH] + "…"
-	body = escape_html(text) or escape_html(_(message.message_type or ""))
+	if message.template and not text:
+		body = escape_html(_("Template: {0}").format(message.template))
+	else:
+		body = escape_html(text) or escape_html(_(message.message_type or ""))
 
 	reply = ""
 	if incoming:
