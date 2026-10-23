@@ -81,6 +81,12 @@ Something did not work? Each setup step shows the reason; see
 
 ## Features
 
+- **Workspace.** The WhatsApp Connect workspace shows open and unread chats,
+  messages received today, failed messages and a chart of messages per day,
+  with shortcuts to everything in the app.
+
+  ![WhatsApp Connect workspace](docs/images/workspace.png)
+
 - **Setup from ERPNext.** The WhatsApp Setup page connects a number with
   Facebook login (or your own Meta app), sets up webhooks, syncs templates
   and tests sending and receiving. No Meta App Dashboard work.
