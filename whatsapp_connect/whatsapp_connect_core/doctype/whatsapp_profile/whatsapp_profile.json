@@ -1,0 +1,123 @@
+{
+ "actions": [],
+ "creation": "2026-10-23 18:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "phone_number",
+  "profile_name",
+  "contact",
+  "whatsapp_account",
+  "column_break_opt_out",
+  "opted_out",
+  "opted_out_on",
+  "last_incoming_at"
+ ],
+ "fields": [
+  {
+   "fieldname": "phone_number",
+   "fieldtype": "Data",
+   "label": "Phone Number",
+   "reqd": 1,
+   "unique": 1,
+   "in_list_view": 1,
+   "description": "Digits only, with the country code."
+  },
+  {
+   "fieldname": "profile_name",
+   "fieldtype": "Data",
+   "label": "WhatsApp Name",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "contact",
+   "fieldtype": "Link",
+   "label": "Contact",
+   "options": "Contact",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "whatsapp_account",
+   "fieldtype": "Link",
+   "label": "WhatsApp Account",
+   "options": "WhatsApp Account"
+  },
+  {
+   "fieldname": "column_break_opt_out",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "opted_out",
+   "fieldtype": "Check",
+   "label": "Opted Out",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "description": "Set when the customer sends STOP; cleared when they send START. Templates and campaigns are not sent to opted-out numbers."
+  },
+  {
+   "fieldname": "opted_out_on",
+   "fieldtype": "Datetime",
+   "label": "Opted Out On",
+   "read_only": 1,
+   "depends_on": "opted_out"
+  },
+  {
+   "fieldname": "last_incoming_at",
+   "fieldtype": "Datetime",
+   "label": "Last Message From Customer",
+   "read_only": 1,
+   "description": "Free-text replies are allowed for 24 hours after this time."
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-10-23 18:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "WhatsApp Connect Core",
+ "name": "WhatsApp Profile",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1
+  },
+  {
+   "role": "WhatsApp Manager",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1
+  },
+  {
+   "role": "WhatsApp User",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "autoname": "field:phone_number",
+ "naming_rule": "By fieldname",
+ "title_field": "profile_name",
+ "search_fields": "profile_name,contact",
+ "show_title_field_in_link": 1,
+ "track_changes": 1
+}

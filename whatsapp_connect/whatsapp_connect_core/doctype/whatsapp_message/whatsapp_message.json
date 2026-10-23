@@ -1,0 +1,298 @@
+{
+ "actions": [],
+ "creation": "2026-10-23 18:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "direction",
+  "whatsapp_account",
+  "phone_number",
+  "profile",
+  "column_break_status",
+  "status",
+  "message_type",
+  "wamid",
+  "source",
+  "content_section",
+  "body",
+  "attachment",
+  "filename",
+  "media_id",
+  "mime_type",
+  "column_break_content",
+  "interactive_options",
+  "list_button_label",
+  "reaction_emoji",
+  "reply_to_wamid",
+  "payload",
+  "delivery_section",
+  "sent_at",
+  "delivered_at",
+  "read_at",
+  "column_break_delivery",
+  "error_code",
+  "error_message",
+  "pricing_category",
+  "reference_section",
+  "reference_doctype",
+  "column_break_reference",
+  "reference_name"
+ ],
+ "fields": [
+  {
+   "fieldname": "direction",
+   "fieldtype": "Select",
+   "label": "Direction",
+   "options": "Outgoing\nIncoming",
+   "reqd": 1,
+   "default": "Outgoing",
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "whatsapp_account",
+   "fieldtype": "Link",
+   "label": "WhatsApp Account",
+   "options": "WhatsApp Account"
+  },
+  {
+   "fieldname": "phone_number",
+   "fieldtype": "Data",
+   "label": "Phone Number",
+   "reqd": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "description": "The customer's number, digits only, with the country code."
+  },
+  {
+   "fieldname": "profile",
+   "fieldtype": "Link",
+   "label": "WhatsApp Profile",
+   "options": "WhatsApp Profile",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_status",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Draft\nQueued\nSent\nDelivered\nRead\nFailed\nReceived\nOpted Out",
+   "default": "Draft",
+   "read_only": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "message_type",
+   "fieldtype": "Select",
+   "label": "Message Type",
+   "options": "text\nimage\ndocument\nvideo\naudio\nsticker\nlocation\ncontacts\nreaction\ninteractive\nbutton\ntemplate\norder\nflow\nunsupported",
+   "default": "text",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "wamid",
+   "fieldtype": "Data",
+   "label": "WhatsApp Message ID",
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "source",
+   "fieldtype": "Data",
+   "label": "Source",
+   "read_only": 1,
+   "description": "What created the message, for example a notification or a campaign."
+  },
+  {
+   "fieldname": "content_section",
+   "fieldtype": "Section Break",
+   "label": "Content"
+  },
+  {
+   "fieldname": "body",
+   "fieldtype": "Small Text",
+   "label": "Text",
+   "description": "The message text, or the caption of a media message."
+  },
+  {
+   "fieldname": "attachment",
+   "fieldtype": "Attach",
+   "label": "Attachment"
+  },
+  {
+   "fieldname": "filename",
+   "fieldtype": "Data",
+   "label": "File Name"
+  },
+  {
+   "fieldname": "media_id",
+   "fieldtype": "Data",
+   "label": "Media ID",
+   "read_only": 1
+  },
+  {
+   "fieldname": "mime_type",
+   "fieldtype": "Data",
+   "label": "MIME Type",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_content",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "interactive_options",
+   "fieldtype": "JSON",
+   "label": "Buttons or List Options",
+   "description": "Up to 3 reply buttons, or up to 10 list rows: [{\"id\": \"yes\", \"title\": \"Yes\"}]."
+  },
+  {
+   "fieldname": "list_button_label",
+   "fieldtype": "Data",
+   "label": "List Button Label",
+   "description": "Label of the button that opens a list. Default: Options."
+  },
+  {
+   "fieldname": "reaction_emoji",
+   "fieldtype": "Data",
+   "label": "Reaction"
+  },
+  {
+   "fieldname": "reply_to_wamid",
+   "fieldtype": "Data",
+   "label": "Reply To (Message ID)"
+  },
+  {
+   "fieldname": "payload",
+   "fieldtype": "JSON",
+   "label": "Payload",
+   "read_only": 1,
+   "description": "Raw data of orders, Flow answers and other structured messages."
+  },
+  {
+   "fieldname": "delivery_section",
+   "fieldtype": "Section Break",
+   "label": "Delivery",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "sent_at",
+   "fieldtype": "Datetime",
+   "label": "Sent At",
+   "read_only": 1
+  },
+  {
+   "fieldname": "delivered_at",
+   "fieldtype": "Datetime",
+   "label": "Delivered At",
+   "read_only": 1
+  },
+  {
+   "fieldname": "read_at",
+   "fieldtype": "Datetime",
+   "label": "Read At",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_delivery",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "error_code",
+   "fieldtype": "Data",
+   "label": "Error Code",
+   "read_only": 1
+  },
+  {
+   "fieldname": "error_message",
+   "fieldtype": "Small Text",
+   "label": "Error Message",
+   "read_only": 1
+  },
+  {
+   "fieldname": "pricing_category",
+   "fieldtype": "Data",
+   "label": "Pricing Category",
+   "read_only": 1
+  },
+  {
+   "fieldname": "reference_section",
+   "fieldtype": "Section Break",
+   "label": "Reference"
+  },
+  {
+   "fieldname": "reference_doctype",
+   "fieldtype": "Link",
+   "label": "Reference Document Type",
+   "options": "DocType",
+   "search_index": 1
+  },
+  {
+   "fieldname": "column_break_reference",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "reference_name",
+   "fieldtype": "Dynamic Link",
+   "label": "Reference Name",
+   "options": "reference_doctype",
+   "search_index": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-10-23 18:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "WhatsApp Connect Core",
+ "name": "WhatsApp Message",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1
+  },
+  {
+   "role": "WhatsApp Manager",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1
+  },
+  {
+   "role": "WhatsApp User",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "autoname": "hash",
+ "title_field": "phone_number",
+ "track_changes": 1
+}

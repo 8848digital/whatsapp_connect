@@ -1,0 +1,75 @@
+{
+ "actions": [],
+ "creation": "2026-10-23 18:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "require_signed_webhooks",
+  "default_country_code",
+  "column_break_logs",
+  "log_retention_days"
+ ],
+ "fields": [
+  {
+   "fieldname": "require_signed_webhooks",
+   "fieldtype": "Check",
+   "label": "Refuse Unsigned Webhook Calls",
+   "description": "Refuse webhook calls when no account has an App Secret. Calls are always checked when an App Secret is set."
+  },
+  {
+   "fieldname": "default_country_code",
+   "fieldtype": "Data",
+   "label": "Default Country Code",
+   "description": "Added to numbers stored without a country code, for example 91."
+  },
+  {
+   "fieldname": "column_break_logs",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "log_retention_days",
+   "fieldtype": "Int",
+   "label": "Keep WhatsApp Logs for (Days)",
+   "default": "30",
+   "non_negative": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-10-23 18:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "WhatsApp Connect Core",
+ "name": "WhatsApp Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1
+  },
+  {
+   "role": "WhatsApp Manager",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "issingle": 1,
+ "track_changes": 1
+}
