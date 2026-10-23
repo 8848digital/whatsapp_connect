@@ -31,7 +31,7 @@ def verify_subscription(query: dict) -> Response:
 	Answer Meta's GET handshake with the challenge when the verify token is known.
 
 	Parameters:
-	        args (dict, required): Query arguments: hub.mode, hub.verify_token, hub.challenge.
+		query (dict, required): Query arguments: hub.mode, hub.verify_token, hub.challenge.
 
 	Returns:
 	        Response: The challenge as plain text (200), or 403.
