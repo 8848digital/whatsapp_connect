@@ -37,7 +37,8 @@ class TestWebhookMessages(WebhookTestCase):
 		self.assertEqual(
 			(message.media_id, message.mime_type, message.body), ("media-9", "image/jpeg", "Photo")
 		)
-		self.assertTrue(self.enqueue.call_args.args[0].endswith("save_incoming_media"))
+		jobs = [call.args[0] for call in self.enqueue.call_args_list if call.args]
+		self.assertTrue(any(job.endswith("save_incoming_media") for job in jobs))
 
 	def test_reaction_and_reply_context(self):
 		reaction = self.incoming(

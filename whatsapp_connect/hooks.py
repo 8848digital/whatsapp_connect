@@ -17,7 +17,7 @@ add_to_apps_screen = [
 		"name": "whatsapp_connect",
 		"logo": "/assets/whatsapp_connect/images/logo.svg",
 		"title": "WhatsApp Connect",
-		"route": "/app/whatsapp-message",
+		"route": "/app/whatsapp-inbox",
 	}
 ]
 
@@ -96,7 +96,8 @@ whatsapp_connect_payload_builders = {
 }
 # Called with each saved incoming WhatsApp Message.
 whatsapp_connect_incoming_handlers = [
-	"whatsapp_connect.whatsapp_connect_flow.responses.handle_incoming"
+	"whatsapp_connect.whatsapp_connect_flow.responses.handle_incoming",
+	"whatsapp_connect.whatsapp_connect_inbox.notifications.handle_incoming",
 ]
 
 # after_request is not wired: the webhook verification and the Flow endpoint

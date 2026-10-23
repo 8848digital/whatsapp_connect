@@ -5,6 +5,7 @@
 
 import frappe
 
+from whatsapp_connect.whatsapp_connect_core.messaging.conversation import publish
 from whatsapp_connect.whatsapp_connect_core.webhook.common import to_datetime
 
 STATUS_MAP = {"sent": "Sent", "delivered": "Delivered", "read": "Read", "failed": "Failed"}
@@ -26,14 +27,17 @@ def update_statuses(statuses: list[dict]) -> None:
 	        None
 	"""
 	for status in statuses:
-		name = frappe.db.get_value(
-			"WhatsApp Message", {"wamid": status.get("id"), "direction": "Outgoing"}
+		message = frappe.db.get_value(
+			"WhatsApp Message",
+			{"wamid": status.get("id"), "direction": "Outgoing"},
+			["name", "phone_number"],
+			as_dict=True,
 		)
-		if name:
-			__apply(name, status)
+		if message and __apply(message.name, status):
+			publish(message.name, message.phone_number, "status")
 
 
-def __apply(name: str, status: dict) -> None:
+def __apply(name: str, status: dict) -> bool:
 	"""
 	Update one message from one status callback.
 
@@ -42,11 +46,11 @@ def __apply(name: str, status: dict) -> None:
 	        status (dict, required): Meta's status object.
 
 	Returns:
-	        None
+	        bool: True when the message changed.
 	"""
 	new_status = STATUS_MAP.get(status.get("status"))
 	if not new_status:
-		return
+		return False
 	current = frappe.db.get_value("WhatsApp Message", name, "status")
 	values = {}
 	if new_status == "Failed":
@@ -71,3 +75,4 @@ def __apply(name: str, status: dict) -> None:
 		values["pricing_category"] = category
 	if values:
 		frappe.db.set_value("WhatsApp Message", name, values)
+	return bool(values)

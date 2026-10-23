@@ -66,7 +66,8 @@ Something did not work? Each setup step shows the reason; see
 | WhatsApp Account | Yes | A WhatsApp Business phone number connected through a Meta app. The WhatsApp Setup page creates it. |
 | WhatsApp Settings | Yes | App-wide settings: webhook signature policy, default country code, log retention, phone source for users. |
 | WhatsApp Message | Yes | Every message sent or received, with its delivery status and Meta's error. |
-| WhatsApp Profile | Yes | One customer number: WhatsApp name, linked Contact, opt-out state, last message time. |
+| WhatsApp Profile | Yes | One customer number: WhatsApp name, linked Contact, opt-out state, last message time, and its conversation in the WhatsApp Inbox (status, assignee, unread count). |
+| WhatsApp Quick Reply | Yes | A saved answer that agents insert in the WhatsApp Inbox. |
 | WhatsApp Template | Yes | Message templates approved by Meta, with variables filled from document fields. |
 | WhatsApp Notification | Yes | Sends a template automatically on a document event, a date or a schedule. |
 | WhatsApp Recipient List | Yes | A reusable list of numbers with per-recipient values. |
@@ -87,6 +88,16 @@ Something did not work? Each setup step shows the reason; see
   the customer's last message.
 
   ![Send WhatsApp dialog with a template preview](docs/images/send-dialog.png)
+
+- **WhatsApp Inbox.** Agents chat with customers from one screen, as in
+  WhatsApp Web. Conversations update in real time and show unread counts.
+  Assign a conversation, set it to Open, Pending or Closed, reply with
+  text, a file, a quick reply or a template, and see when the 24-hour
+  reply window closes. **New Message** starts a chat with any number.
+  Agents get a popup, a browser notification and a desk notification for
+  new messages; a click opens the chat.
+
+  ![WhatsApp Inbox with a conversation open](docs/images/inbox.png)
 
 - **Conversations in the timeline.** Messages appear in the timeline of their
   document; incoming messages are linked to the Contact, Lead or Customer

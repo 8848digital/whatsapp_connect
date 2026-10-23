@@ -94,6 +94,7 @@ every call to Meta and every webhook call.
 | Default Country Code | Data | No | Added to numbers stored without one, for example `91`. |
 | Keep WhatsApp Logs for (Days) | Int | No | Default 30; 0 keeps them. |
 | Phone Number of Users | Select | No | Where role-based notifications find users' numbers (User or Employee). |
+| Notify Agents of New Messages | Select | No | Who gets a popup and a desk notification for a new message: the assigned user, else all agents (default); the assigned user only; or nobody. Agents are users with the WhatsApp Manager or WhatsApp User role. |
 
 **WhatsApp Account** (one per number; the setup page fills it):
 

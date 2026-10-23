@@ -15,6 +15,7 @@ from whatsapp_connect.whatsapp_connect_core.doctype.whatsapp_profile.profile_uti
 )
 from whatsapp_connect.whatsapp_connect_core.messaging import sender
 from whatsapp_connect.whatsapp_connect_core.messaging.contact_link import find_reference
+from whatsapp_connect.whatsapp_connect_core.messaging.conversation import publish, record_message
 from whatsapp_connect.whatsapp_connect_core.phone import normalize_number
 
 
@@ -50,7 +51,8 @@ def prepare_message(message) -> None:
 
 def send_after_insert(message) -> None:
 	"""
-	Send a queued outgoing message, unless the caller asked not to (flags.skip_send).
+	Update the conversation, then send a queued outgoing message unless the caller
+	asked not to (flags.skip_send).
 
 	Parameters:
 	        message (Document, required): The inserted WhatsApp Message.
@@ -58,6 +60,7 @@ def send_after_insert(message) -> None:
 	Returns:
 	        None
 	"""
+	record_message(message)
 	if message.direction != "Outgoing" or message.status != "Queued" or message.flags.skip_send:
 		return
 	sender.send(message)
@@ -78,6 +81,7 @@ def retry_message(message_name: str) -> str:
 	if message.direction != "Outgoing" or message.status != "Failed":
 		frappe.throw(_("Only failed outgoing messages can be sent again"))
 	sender.send(message)
+	publish(message.name, message.phone_number, "status")
 	return frappe.db.get_value("WhatsApp Message", message_name, "status")
 
 

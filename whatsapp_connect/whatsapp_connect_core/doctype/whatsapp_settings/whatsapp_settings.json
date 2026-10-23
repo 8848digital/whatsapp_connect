@@ -10,7 +10,9 @@
   "log_retention_days",
   "role_phone_source",
   "setup_section",
-  "hub_url"
+  "hub_url",
+  "inbox_section",
+  "inbox_notifications"
  ],
  "fields": [
   {
@@ -55,11 +57,24 @@
    "label": "Hub URL",
    "options": "URL",
    "description": "The 8848 hub site for Connect with Facebook, for example https://hub.example.com."
+  },
+  {
+   "fieldname": "inbox_section",
+   "fieldtype": "Section Break",
+   "label": "WhatsApp Inbox"
+  },
+  {
+   "fieldname": "inbox_notifications",
+   "fieldtype": "Select",
+   "label": "Notify Agents of New Messages",
+   "options": "Assigned user, else all agents\nAssigned user only\nNobody",
+   "default": "Assigned user, else all agents",
+   "description": "Agents are users with the WhatsApp Manager or WhatsApp User role. They get a popup for each message and a desk notification for each conversation with new messages."
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-10-23 20:00:00.000000",
+ "modified": "2026-10-24 10:00:00.000000",
  "modified_by": "Administrator",
  "module": "WhatsApp Connect Core",
  "name": "WhatsApp Settings",
