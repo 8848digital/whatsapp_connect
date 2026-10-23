@@ -1,0 +1,49 @@
+/* Copyright (c) 2026, 8848 Digital LLP and contributors. License: MIT. See license.txt */
+
+/* Message bubble used by the template preview and the Send WhatsApp dialog. */
+.wac-chat {
+	background: #efeae2;
+	border-radius: var(--border-radius-md, 8px);
+	padding: 16px;
+}
+
+.wac-bubble {
+	background: #fff;
+	border-radius: 8px;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.13);
+	color: #111b21;
+	font-size: 14px;
+	line-height: 1.45;
+	max-width: 380px;
+	padding: 8px 10px;
+}
+
+.wac-bubble .wac-media {
+	background: #d1d7db;
+	border-radius: 6px;
+	color: #54656f;
+	font-size: 13px;
+	margin-bottom: 6px;
+	padding: 20px 10px;
+	text-align: center;
+}
+
+.wac-bubble .wac-variable {
+	background: #d9fdd3;
+	border-radius: 3px;
+	padding: 0 2px;
+}
+
+.wac-bubble .wac-footer {
+	color: #667781;
+	font-size: 12px;
+	margin-top: 4px;
+}
+
+.wac-bubble .wac-button {
+	border-top: 1px solid #e9edef;
+	color: #027eb5;
+	margin: 6px -10px -8px;
+	padding: 8px 10px;
+	text-align: center;
+}

@@ -23,6 +23,9 @@ from whatsapp_connect.whatsapp_connect_core.webhook.signature import (
 CORE_FIELDS = {
 	"messages": "whatsapp_connect.whatsapp_connect_core.webhook.incoming.handle_messages_change",
 	"smb_message_echoes": "whatsapp_connect.whatsapp_connect_core.webhook.echoes.handle_echoes_change",
+	"message_template_status_update": (
+		"whatsapp_connect.whatsapp_connect_core.doctype.whatsapp_template.template_meta.update_template_status"
+	),
 }
 
 

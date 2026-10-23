@@ -136,3 +136,37 @@ def webhook_body(account: str, field: str, value: dict) -> bytes:
 			"entry": [{"changes": [{"field": field, "value": value}]}],
 		}
 	).encode()
+
+
+def make_template(
+	name: str = "test_order_update", account: str | None = None, status: str = "Approved", **values
+) -> str:
+	"""
+	Create a WhatsApp Template directly in the database (Meta is not called).
+
+	Parameters:
+	        name (str, optional): Template name.
+	        account (str, optional): WhatsApp Account; the default test account when None.
+	        status (str, optional): Template status. Default "Approved".
+	        **values: Other field values, for example buttons=[...].
+
+	Returns:
+	        str: The WhatsApp Template name ("<name>-en").
+	"""
+	template = frappe.get_doc(
+		{
+			"doctype": "WhatsApp Template",
+			"template_name": name,
+			"language_code": "en",
+			"category": "UTILITY",
+			"whatsapp_account": account or make_account(),
+			"body": "Hello {{1}}, your order {{2}} is ready.",
+			"body_samples": "Asha\nSO-0001",
+			**values,
+		}
+	)
+	if frappe.db.exists("WhatsApp Template", f"{name}-en"):
+		frappe.delete_doc("WhatsApp Template", f"{name}-en", force=True, ignore_permissions=True)
+	template.insert(ignore_permissions=True)
+	template.db_set("status", status)
+	return template.name

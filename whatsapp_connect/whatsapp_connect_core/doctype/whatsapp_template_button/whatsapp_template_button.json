@@ -1,0 +1,98 @@
+{
+ "actions": [],
+ "creation": "2026-10-23 18:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "button_type",
+  "label",
+  "phone_number",
+  "url",
+  "url_sample",
+  "value_field",
+  "code_sample",
+  "flow_id",
+  "flow_screen"
+ ],
+ "fields": [
+  {
+   "fieldname": "button_type",
+   "fieldtype": "Select",
+   "label": "Type",
+   "options": "Quick Reply\nPhone Number\nURL\nCopy Code\nOne-Time Password\nFlow\nCatalog\nMulti-Product",
+   "reqd": 1,
+   "in_list_view": 1,
+   "columns": 2
+  },
+  {
+   "fieldname": "label",
+   "fieldtype": "Data",
+   "label": "Label",
+   "in_list_view": 1,
+   "columns": 2,
+   "description": "Text on the button, up to 25 characters. Not used for Copy Code."
+  },
+  {
+   "fieldname": "phone_number",
+   "fieldtype": "Data",
+   "label": "Phone Number",
+   "depends_on": "eval:doc.button_type=='Phone Number'"
+  },
+  {
+   "fieldname": "url",
+   "fieldtype": "Data",
+   "label": "URL",
+   "in_list_view": 1,
+   "columns": 3,
+   "depends_on": "eval:doc.button_type=='URL'",
+   "description": "End with {{1}} for a dynamic URL, for example https://example.com/order/{{1}}."
+  },
+  {
+   "fieldname": "url_sample",
+   "fieldtype": "Data",
+   "label": "URL Sample",
+   "depends_on": "eval:doc.button_type=='URL'",
+   "description": "Full example URL, needed for approval of a dynamic URL."
+  },
+  {
+   "fieldname": "value_field",
+   "fieldtype": "Data",
+   "label": "Value from Field",
+   "in_list_view": 1,
+   "columns": 2,
+   "depends_on": "eval:['URL','Copy Code','One-Time Password','Flow'].includes(doc.button_type)",
+   "description": "Document field that fills the dynamic part when the template is sent."
+  },
+  {
+   "fieldname": "code_sample",
+   "fieldtype": "Data",
+   "label": "Code Sample",
+   "depends_on": "eval:doc.button_type=='Copy Code'"
+  },
+  {
+   "fieldname": "flow_id",
+   "fieldtype": "Data",
+   "label": "Flow ID",
+   "depends_on": "eval:doc.button_type=='Flow'"
+  },
+  {
+   "fieldname": "flow_screen",
+   "fieldtype": "Data",
+   "label": "First Screen",
+   "depends_on": "eval:doc.button_type=='Flow'"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-10-23 18:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "WhatsApp Connect Core",
+ "name": "WhatsApp Template Button",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "istable": 1,
+ "editable_grid": 1
+}

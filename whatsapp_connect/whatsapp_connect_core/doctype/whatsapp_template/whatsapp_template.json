@@ -1,0 +1,250 @@
+{
+ "actions": [],
+ "creation": "2026-10-23 18:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "template_name",
+  "language_code",
+  "category",
+  "whatsapp_account",
+  "column_break_status",
+  "status",
+  "meta_template_id",
+  "rejected_reason",
+  "reference_doctype",
+  "header_section",
+  "header_type",
+  "header_text",
+  "header_sample",
+  "header_field",
+  "column_break_header",
+  "header_sample_file",
+  "body_section",
+  "body",
+  "footer",
+  "column_break_body",
+  "body_samples",
+  "body_fields",
+  "buttons_section",
+  "buttons",
+  "preview_section",
+  "preview"
+ ],
+ "fields": [
+  {
+   "fieldname": "template_name",
+   "fieldtype": "Data",
+   "label": "Template Name",
+   "reqd": 1,
+   "in_list_view": 1,
+   "description": "Lowercase letters, digits and underscores, for example order_update."
+  },
+  {
+   "fieldname": "language_code",
+   "fieldtype": "Data",
+   "label": "Language Code",
+   "reqd": 1,
+   "default": "en",
+   "in_list_view": 1,
+   "description": "For example en, en_US, hi, ar."
+  },
+  {
+   "fieldname": "category",
+   "fieldtype": "Select",
+   "label": "Category",
+   "options": "UTILITY\nMARKETING\nAUTHENTICATION",
+   "reqd": 1,
+   "default": "UTILITY",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "whatsapp_account",
+   "fieldtype": "Link",
+   "label": "WhatsApp Account",
+   "options": "WhatsApp Account",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_status",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Draft\nPending\nApproved\nRejected\nPaused\nDisabled\nIn Appeal\nDeleted",
+   "default": "Draft",
+   "read_only": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "meta_template_id",
+   "fieldtype": "Data",
+   "label": "Meta Template ID",
+   "read_only": 1
+  },
+  {
+   "fieldname": "rejected_reason",
+   "fieldtype": "Small Text",
+   "label": "Reason",
+   "read_only": 1,
+   "depends_on": "rejected_reason"
+  },
+  {
+   "fieldname": "reference_doctype",
+   "fieldtype": "Link",
+   "label": "Used With",
+   "options": "DocType",
+   "description": "Doctype whose fields fill the variables, for example Sales Invoice."
+  },
+  {
+   "fieldname": "header_section",
+   "fieldtype": "Section Break",
+   "label": "Header"
+  },
+  {
+   "fieldname": "header_type",
+   "fieldtype": "Select",
+   "label": "Header Type",
+   "options": "\nText\nImage\nDocument\nVideo"
+  },
+  {
+   "fieldname": "header_text",
+   "fieldtype": "Data",
+   "label": "Header Text",
+   "depends_on": "eval:doc.header_type=='Text'",
+   "description": "Can contain one variable: {{1}}."
+  },
+  {
+   "fieldname": "header_sample",
+   "fieldtype": "Data",
+   "label": "Header Sample",
+   "depends_on": "eval:doc.header_type=='Text'"
+  },
+  {
+   "fieldname": "header_field",
+   "fieldtype": "Data",
+   "label": "Header Value from Field",
+   "depends_on": "eval:doc.header_type=='Text'"
+  },
+  {
+   "fieldname": "column_break_header",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "header_sample_file",
+   "fieldtype": "Attach",
+   "label": "Sample File",
+   "depends_on": "eval:['Image','Document','Video'].includes(doc.header_type)",
+   "description": "Example file, sent to Meta for approval."
+  },
+  {
+   "fieldname": "body_section",
+   "fieldtype": "Section Break",
+   "label": "Body"
+  },
+  {
+   "fieldname": "body",
+   "fieldtype": "Code",
+   "label": "Text",
+   "reqd": 1,
+   "options": "Text",
+   "description": "Variables are {{1}}, {{2}}... Use *bold* and _italic_."
+  },
+  {
+   "fieldname": "footer",
+   "fieldtype": "Data",
+   "label": "Footer",
+   "description": "Up to 60 characters, no variables."
+  },
+  {
+   "fieldname": "column_break_body",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "body_samples",
+   "fieldtype": "Small Text",
+   "label": "Samples",
+   "description": "One example value per line, for {{1}}, {{2}}... Needed for approval."
+  },
+  {
+   "fieldname": "body_fields",
+   "fieldtype": "Small Text",
+   "label": "Values from Fields",
+   "description": "One document field per line, for {{1}}, {{2}}..., used when the template is sent for a document."
+  },
+  {
+   "fieldname": "buttons_section",
+   "fieldtype": "Section Break",
+   "label": "Buttons"
+  },
+  {
+   "fieldname": "buttons",
+   "fieldtype": "Table",
+   "label": "Buttons",
+   "options": "WhatsApp Template Button"
+  },
+  {
+   "fieldname": "preview_section",
+   "fieldtype": "Section Break",
+   "label": "Preview"
+  },
+  {
+   "fieldname": "preview",
+   "fieldtype": "HTML",
+   "label": "Preview"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-10-23 18:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "WhatsApp Connect Core",
+ "name": "WhatsApp Template",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1
+  },
+  {
+   "role": "WhatsApp Manager",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1
+  },
+  {
+   "role": "WhatsApp User",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "autoname": "format:{template_name}-{language_code}",
+ "naming_rule": "Expression",
+ "title_field": "template_name",
+ "search_fields": "template_name,status",
+ "track_changes": 1
+}

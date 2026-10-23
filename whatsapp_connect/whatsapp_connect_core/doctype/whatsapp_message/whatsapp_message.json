@@ -25,6 +25,10 @@
   "reaction_emoji",
   "reply_to_wamid",
   "payload",
+  "template_section",
+  "template",
+  "column_break_template",
+  "template_params",
   "delivery_section",
   "sent_at",
   "delivered_at",
@@ -173,6 +177,28 @@
    "label": "Payload",
    "read_only": 1,
    "description": "Raw data of orders, Flow answers and other structured messages."
+  },
+  {
+   "fieldname": "template_section",
+   "fieldtype": "Section Break",
+   "label": "Template",
+   "depends_on": "eval:doc.message_type=='template'"
+  },
+  {
+   "fieldname": "template",
+   "fieldtype": "Link",
+   "label": "Template",
+   "options": "WhatsApp Template"
+  },
+  {
+   "fieldname": "column_break_template",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "template_params",
+   "fieldtype": "JSON",
+   "label": "Template Values",
+   "description": "{\"header\": [...], \"header_media\": \"/files/...\", \"body\": [...], \"buttons\": {\"0\": \"value\"}}"
   },
   {
    "fieldname": "delivery_section",
