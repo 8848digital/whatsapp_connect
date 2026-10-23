@@ -154,3 +154,37 @@ class TestTasks(IntegrationTestCase):
 		tasks.clear_old_logs()
 		self.assertFalse(frappe.db.exists("WhatsApp Log", old.name))
 		self.assertTrue(frappe.db.exists("WhatsApp Log", new.name))
+
+
+class TestTimelineTemplateCard(IntegrationTestCase):
+	"""A sent template shows its name on the timeline card."""
+
+	def tearDown(self):
+		"""Undo the test's database changes."""
+		frappe.db.rollback()
+
+	def test_template_name_on_card(self):
+		from whatsapp_connect.tests.utils import make_template
+
+		account = make_account()
+		template = make_template("test_timeline_card")
+		contact = frappe.get_doc({"doctype": "Contact", "first_name": "Card"}).insert(
+			ignore_permissions=True
+		)
+		message = frappe.get_doc(
+			{
+				"doctype": "WhatsApp Message",
+				"phone_number": random_number(),
+				"message_type": "template",
+				"template": template,
+				"whatsapp_account": account,
+				"reference_doctype": "Contact",
+				"reference_name": contact.name,
+				"status": "Sent",
+			}
+		)
+		message.flags.skip_send = True
+		message.insert(ignore_permissions=True)
+		self.assertIn(
+			f"Template: {template}", get_timeline_content("Contact", contact.name)[0]["content"]
+		)
