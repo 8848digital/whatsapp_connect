@@ -48,12 +48,10 @@ function fill_field_selects(frm) {
 	frappe.model.with_doctype(frm.doc.reference_doctype, () => {
 		const fields = frappe.get_meta(frm.doc.reference_doctype).fields;
 		Object.entries(FIELD_SELECTS).forEach(([fieldname, accepts]) => {
-			const options = fields
-				.filter(accepts)
-				.map((df) => ({
-					value: df.fieldname,
-					label: `${__(df.label || df.fieldname)} (${df.fieldname})`,
-				}));
+			const options = fields.filter(accepts).map((df) => ({
+				value: df.fieldname,
+				label: `${__(df.label || df.fieldname)} (${df.fieldname})`,
+			}));
 			frm.set_df_property(fieldname, "options", [{ value: "", label: "" }, ...options]);
 		});
 	});
