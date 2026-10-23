@@ -29,6 +29,9 @@ custom_fixtures = [
 
 commands = ["whatsapp_connect.commands.export_fixtures.export_fixtures"]
 
+app_include_js = "whatsapp_connect.bundle.js"
+app_include_css = "/assets/whatsapp_connect/css/whatsapp_connect.css"
+
 before_install = "whatsapp_connect.install.before_install"
 
 scheduler_events = {
@@ -43,6 +46,9 @@ additional_timeline_content = {
 # Extension points between modules (see messaging/payload.py and webhook/handler.py):
 # whatsapp_connect_payload_builders = {"<message_type>": "<dotted.path>"}
 # whatsapp_connect_webhook_fields = {"<webhook field>": "<dotted.path>"}
+whatsapp_connect_payload_builders = {
+	"template": "whatsapp_connect.whatsapp_connect_core.messaging.template_payload.build_template_object",
+}
 
 # after_request is not wired: the webhook verification and the Flow endpoint
 # must answer Meta in plain text, which the response formatter would try to

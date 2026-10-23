@@ -18,6 +18,9 @@ def send(message) -> bool:
 	"""
 	Send the message now. On an error, the message is kept with the status Failed.
 
+	Errors are Meta's answers (CloudAPIError) or problems found while building the
+	message, for example a template that is not approved.
+
 	Parameters:
 	        message (Document, required): An inserted outgoing WhatsApp Message.
 
@@ -32,14 +35,16 @@ def send(message) -> bool:
 		api = CloudAPI(message.whatsapp_account)
 		payload = build_payload(message, api)
 		wamid = api.send_message(payload)
-	except CloudAPIError as error:
-		message.flags.cloud_api_error = error
+	except frappe.ValidationError as error:
+		# Keep the reason on the message instead of showing it as a popup.
+		frappe.clear_last_message()
+		message.flags.send_error = error
 		message.db_set(
 			{
 				"status": "Failed",
-				"error_code": str(error.code or ""),
-				"error_message": error.describe(),
-				"media_id": message.media_id,
+				"error_code": str(getattr(error, "code", None) or ""),
+				"error_message": error.describe() if isinstance(error, CloudAPIError) else str(error),
+				**__built_values(message),
 			}
 		)
 		return False
@@ -49,9 +54,22 @@ def send(message) -> bool:
 			"status": "Sent",
 			"wamid": wamid,
 			"sent_at": now_datetime(),
-			"media_id": message.media_id,
 			"error_code": None,
 			"error_message": None,
+			**__built_values(message),
 		}
 	)
 	return True
+
+
+def __built_values(message) -> dict:
+	"""
+	Values filled while the payload was built, saved for reference.
+
+	Parameters:
+	        message (Document, required): The WhatsApp Message.
+
+	Returns:
+	        dict: media_id and template_params.
+	"""
+	return {"media_id": message.media_id, "template_params": message.template_params}
