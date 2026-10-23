@@ -7,6 +7,7 @@
 | [user-guide.md](user-guide.md) | Using the app, step by step with screenshots |
 | [features.md](features.md) | Everything the app does |
 | [development.md](development.md) | Bench, code layout, hooks, code quality, tests |
+| [hub-setup.md](hub-setup.md) | 8848 Digital: the one-time Meta Tech Provider and hub setup for Connect with Facebook |
 | [marketplace.md](marketplace.md) | Frappe Marketplace checklist and listing text |
 | [privacy-policy.md](privacy-policy.md) | Privacy policy (draft) |
 | [demo-video-script.md](demo-video-script.md) | Script for the Marketplace demo video |

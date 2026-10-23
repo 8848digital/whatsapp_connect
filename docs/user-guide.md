@@ -2,21 +2,21 @@
 
 # User guide
 
-This guide shows how to use WhatsApp Connect, step by step. To connect the
-app to Meta first, see [SETUP.md](../SETUP.md).
+This guide shows how to use WhatsApp Connect, step by step.
 
-## 1. Connect a WhatsApp account
+## 1. Connect a WhatsApp number
 
-1. Go to **WhatsApp Account** and click **Add WhatsApp Account**.
-2. Enter the values from the Meta App Dashboard (see SETUP.md), the App
-   Secret, and a Webhook Verify Token of your choice.
-3. Select **Default for Outgoing Messages** and **Default for Incoming
-   Messages** if this is your main number.
-4. Save, then click **Subscribe App to Webhooks**.
-5. Copy the **Callback URL for Meta** shown on the form into the webhook
-   settings in Meta.
+1. Open **WhatsApp Setup** (type it in the search bar).
+2. Click **Connect with Facebook**, log in, choose your business, add your
+   number and type the code that WhatsApp sends. If you already have a Meta
+   app, click **Enter App Details** instead.
+3. Wait for the setup steps to show **Done**.
+4. Click **Test**: send `hello_world` to your mobile, then send a message
+   from your phone and click **Check Incoming**.
 
-![WhatsApp Account with the App Secret and the callback URL](images/account.png)
+![WhatsApp Setup page](images/setup.png)
+
+Details of both ways, and what each step does: [SETUP.md](../SETUP.md).
 
 ## 2. Add templates
 
