@@ -122,6 +122,15 @@ Auto-replies stop when the conversation is assigned to an agent in the
 WhatsApp Inbox. To stop all of them, select **Pause All Auto-Replies** in
 WhatsApp Auto Reply Settings.
 
+### Chat from Frappe CRM
+
+With Frappe CRM installed, open a lead or a deal in CRM and click the
+**WhatsApp** tab. The tab shows the messages of the record's numbers. Type a
+message and press Enter, attach a file with the plus button, or click **Send
+Template**.
+
+![Frappe CRM Lead with the WhatsApp tab](images/crm.png)
+
 ## 5. Send messages automatically
 
 Go to **WhatsApp Notification** and click **Add WhatsApp Notification**.

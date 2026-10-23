@@ -3,13 +3,16 @@
 
 from frappe.model.document import Document
 
+from whatsapp_connect.whatsapp_connect_core.doctype.whatsapp_message.frappe_whatsapp_fields import (
+	FrappeWhatsAppFields,
+)
 from whatsapp_connect.whatsapp_connect_core.doctype.whatsapp_message.message_utils import (
 	prepare_message,
 	send_after_insert,
 )
 
 
-class WhatsAppMessage(Document):
+class WhatsAppMessage(FrappeWhatsAppFields, Document):
 	"""One WhatsApp message, sent or received."""
 
 	def before_insert(self):

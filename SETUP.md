@@ -164,6 +164,28 @@ the account's public key, which the setup creates (**Create Flow keys**).
 **How to test:** open the flow's preview link (Meta > **Open Preview**) and
 go through the screens.
 
+## Frappe CRM (optional)
+
+Frappe CRM works on Frappe 15 and 16. WhatsApp Connect serves the WhatsApp tab
+of CRM Leads and CRM Deals.
+
+1. Install Frappe CRM on the site: `bench get-app crm`, then
+   `bench --site <site> install-app crm`.
+2. Run `bench --site <site> migrate`. This gives Sales User and Sales Manager
+   read access to the template list.
+3. Give the CRM users the Sales User or Sales Manager role. They can then use
+   WhatsApp in CRM for the leads and deals they can open.
+4. Set a default outgoing WhatsApp Account. CRM shows the WhatsApp tab only
+   when one is enabled.
+
+The tab shows all messages of the record's numbers (its phone fields, its
+contacts, and the lead of a deal). Free text needs a customer message in the
+last 24 hours; after that, send a template. Make and change templates in
+**WhatsApp Template**, not with **Create New Template** in CRM.
+
+Do not install the frappe_whatsapp app on the same site: it uses the same
+doctype names.
+
 ## WhatsApp Hub (8848 Digital only)
 
 The hub is the site that runs Connect with Facebook for all customer

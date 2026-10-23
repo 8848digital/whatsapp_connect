@@ -35,6 +35,7 @@ custom_fixtures = [
 					"WhatsApp Connect Setup",
 					"WhatsApp Connect Inbox",
 					"WhatsApp Connect Automation",
+					"WhatsApp Connect CRM",
 				],
 			]
 		},
@@ -47,6 +48,7 @@ app_include_js = "whatsapp_connect.bundle.js"
 app_include_css = "/assets/whatsapp_connect/css/whatsapp_connect.css"
 
 before_install = "whatsapp_connect.install.before_install"
+after_migrate = ["whatsapp_connect.whatsapp_connect_crm.permissions.add_crm_permissions"]
 
 _NOTIFICATION_TASKS = "whatsapp_connect.whatsapp_connect_notification.tasks"
 
@@ -108,6 +110,20 @@ whatsapp_connect_incoming_handlers = [
 whatsapp_connect_auto_reply_actions = {
 	"Order Status": "whatsapp_connect.whatsapp_connect_automation.erp_actions.order_status",
 	"Outstanding Balance": "whatsapp_connect.whatsapp_connect_automation.erp_actions.outstanding_balance",
+}
+
+# Frappe CRM's WhatsApp tab calls these; WhatsApp Connect serves them (whatsapp_connect_crm).
+_CRM_API = "whatsapp_connect.whatsapp_connect_crm.api.v1.crm_whatsapp"
+override_whitelisted_methods = {
+	f"crm.api.whatsapp.{method}": f"{_CRM_API}.{method}"
+	for method in (
+		"is_whatsapp_installed",
+		"is_whatsapp_enabled",
+		"get_whatsapp_messages",
+		"create_whatsapp_message",
+		"send_whatsapp_template",
+		"react_on_whatsapp_message",
+	)
 }
 
 # after_request is not wired: the webhook verification and the Flow endpoint
