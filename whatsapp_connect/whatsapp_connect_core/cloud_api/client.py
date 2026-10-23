@@ -157,7 +157,7 @@ class CloudAPI:
 			)
 		except requests.RequestException as exc:
 			log_request(self.account.name, method, path, json_body or data, None, None, str(exc))
-			raise CloudAPIError(_("Could not reach the WhatsApp Cloud API: {0}").format(exc)) from exc
+			raise CloudAPIError(_("Could not reach the WhatsApp Cloud API"), details=str(exc)) from exc
 
 		answer = self.__decode(response)
 		error = answer.get("error") if isinstance(answer, dict) else None

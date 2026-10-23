@@ -29,7 +29,7 @@ CORE_FIELDS = {
 }
 
 
-def verify_subscription(args: dict) -> Response:
+def verify_subscription(query: dict) -> Response:
 	"""
 	Answer Meta's GET handshake with the challenge when the verify token is known.
 
@@ -39,10 +39,10 @@ def verify_subscription(args: dict) -> Response:
 	Returns:
 	        Response: The challenge as plain text (200), or 403.
 	"""
-	token = args.get("hub.verify_token")
+	token = query.get("hub.verify_token")
 	known = token and frappe.db.exists("WhatsApp Account", {"verify_token": token, "enabled": 1})
-	if args.get("hub.mode") == "subscribe" and known:
-		return Response(args.get("hub.challenge") or "", status=200, mimetype="text/plain")
+	if query.get("hub.mode") == "subscribe" and known:
+		return Response(query.get("hub.challenge") or "", status=200, mimetype="text/plain")
 	return Response("Verify token does not match", status=403, mimetype="text/plain")
 
 

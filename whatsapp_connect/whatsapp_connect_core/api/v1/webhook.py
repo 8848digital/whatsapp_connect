@@ -9,6 +9,7 @@ from whatsapp_connect.whatsapp_connect_core.webhook import handler
 from whatsapp_connect.whatsapp_connect_core.webhook.signature import SIGNATURE_HEADER
 
 
+# nosemgrep: frappe-semgrep-rules.rules.security.guest-whitelisted-method -- Meta calls the webhook without a session; POST is checked with X-Hub-Signature-256 and GET with the verify token
 @frappe.whitelist(allow_guest=True, methods=["GET", "POST"])
 def receive():
 	"""
