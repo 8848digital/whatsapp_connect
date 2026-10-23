@@ -1,0 +1,5 @@
+# Repo tooling, not shipped app code: Claude skills, CI scripts, and the
+# synced 8848 bench command (overwritten by scripts/sync_skills.sh).
+.claude/
+scripts/
+whatsapp_connect/commands/
