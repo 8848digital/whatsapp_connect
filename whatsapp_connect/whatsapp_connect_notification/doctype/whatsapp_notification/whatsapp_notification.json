@@ -1,0 +1,284 @@
+{
+ "actions": [],
+ "creation": "2026-10-23 18:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "notification_name",
+  "enabled",
+  "event_type",
+  "reference_doctype",
+  "column_break_trigger",
+  "document_event",
+  "value_changed",
+  "date_field",
+  "days_offset",
+  "frequency",
+  "document_filters",
+  "condition",
+  "message_section",
+  "template",
+  "whatsapp_account",
+  "column_break_message",
+  "body_fields",
+  "recipients_section",
+  "phone_field",
+  "send_to_party",
+  "fixed_numbers",
+  "column_break_recipients",
+  "recipient_roles",
+  "attachment_section",
+  "attach_print",
+  "print_format",
+  "column_break_attachment",
+  "attach_from_field",
+  "attach_file",
+  "after_send_section",
+  "set_field",
+  "column_break_after_send",
+  "set_value"
+ ],
+ "fields": [
+  {
+   "fieldname": "notification_name",
+   "fieldtype": "Data",
+   "label": "Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "Enabled",
+   "default": "1",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "event_type",
+   "fieldtype": "Select",
+   "label": "Send",
+   "options": "Document Event\nDate Based\nScheduled",
+   "reqd": 1,
+   "default": "Document Event",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "reference_doctype",
+   "fieldtype": "Link",
+   "label": "Document Type",
+   "options": "DocType",
+   "in_list_view": 1,
+   "mandatory_depends_on": "eval:doc.event_type!='Scheduled'"
+  },
+  {
+   "fieldname": "column_break_trigger",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "document_event",
+   "fieldtype": "Select",
+   "label": "When",
+   "options": "New\nSave\nSubmit\nCancel\nDelete\nValue Change\nSave After Submit",
+   "depends_on": "eval:doc.event_type=='Document Event'",
+   "mandatory_depends_on": "eval:doc.event_type=='Document Event'"
+  },
+  {
+   "fieldname": "value_changed",
+   "fieldtype": "Select",
+   "label": "Field That Changes",
+   "depends_on": "eval:doc.document_event=='Value Change'"
+  },
+  {
+   "fieldname": "date_field",
+   "fieldtype": "Select",
+   "label": "Date Field",
+   "depends_on": "eval:doc.event_type=='Date Based'",
+   "mandatory_depends_on": "eval:doc.event_type=='Date Based'"
+  },
+  {
+   "fieldname": "days_offset",
+   "fieldtype": "Int",
+   "label": "Days After the Date",
+   "depends_on": "eval:doc.event_type=='Date Based'",
+   "description": "Use a negative number for days before the date, for example -3."
+  },
+  {
+   "fieldname": "frequency",
+   "fieldtype": "Select",
+   "label": "Frequency",
+   "options": "Hourly\nDaily\nWeekly\nMonthly\nYearly",
+   "depends_on": "eval:doc.event_type=='Scheduled'",
+   "mandatory_depends_on": "eval:doc.event_type=='Scheduled'"
+  },
+  {
+   "fieldname": "document_filters",
+   "fieldtype": "Code",
+   "label": "Document Filters",
+   "options": "JSON",
+   "depends_on": "eval:doc.event_type=='Scheduled' && doc.reference_doctype",
+   "description": "Send for each document that matches, for example {\"status\": \"Overdue\"}."
+  },
+  {
+   "fieldname": "condition",
+   "fieldtype": "Code",
+   "label": "Condition",
+   "options": "Python",
+   "description": "Optional. Send only when true, for example doc.status == \"Paid\"."
+  },
+  {
+   "fieldname": "message_section",
+   "fieldtype": "Section Break",
+   "label": "Message"
+  },
+  {
+   "fieldname": "template",
+   "fieldtype": "Link",
+   "label": "Template",
+   "options": "WhatsApp Template",
+   "reqd": 1
+  },
+  {
+   "fieldname": "whatsapp_account",
+   "fieldtype": "Link",
+   "label": "WhatsApp Account",
+   "options": "WhatsApp Account",
+   "description": "Default: the template's account."
+  },
+  {
+   "fieldname": "column_break_message",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "body_fields",
+   "fieldtype": "Small Text",
+   "label": "Variables from Fields",
+   "description": "Optional. One document field per line for {{1}}, {{2}}...; default: the template's mapping."
+  },
+  {
+   "fieldname": "recipients_section",
+   "fieldtype": "Section Break",
+   "label": "Recipients"
+  },
+  {
+   "fieldname": "phone_field",
+   "fieldtype": "Select",
+   "label": "Phone Number Field"
+  },
+  {
+   "fieldname": "send_to_party",
+   "fieldtype": "Check",
+   "label": "Send to the Party's Mobile Number",
+   "description": "For documents without a phone field, such as Payment Entry or Payment Request: Contact Mobile, then the Contact Person, then the Customer or Supplier and its contacts."
+  },
+  {
+   "fieldname": "fixed_numbers",
+   "fieldtype": "Small Text",
+   "label": "Other Numbers",
+   "description": "One number per line, with the country code."
+  },
+  {
+   "fieldname": "column_break_recipients",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "recipient_roles",
+   "fieldtype": "Table",
+   "label": "Users With Role",
+   "options": "WhatsApp Notification Role"
+  },
+  {
+   "fieldname": "attachment_section",
+   "fieldtype": "Section Break",
+   "label": "Attachment",
+   "description": "For templates with a document, image or video header."
+  },
+  {
+   "fieldname": "attach_print",
+   "fieldtype": "Check",
+   "label": "Attach Document Print"
+  },
+  {
+   "fieldname": "print_format",
+   "fieldtype": "Link",
+   "label": "Print Format",
+   "options": "Print Format",
+   "depends_on": "attach_print",
+   "description": "Default: the doctype's default print format."
+  },
+  {
+   "fieldname": "column_break_attachment",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "attach_from_field",
+   "fieldtype": "Select",
+   "label": "Attachment from Field",
+   "depends_on": "eval:!doc.attach_print"
+  },
+  {
+   "fieldname": "attach_file",
+   "fieldtype": "Attach",
+   "label": "Fixed Attachment",
+   "depends_on": "eval:!doc.attach_print && !doc.attach_from_field"
+  },
+  {
+   "fieldname": "after_send_section",
+   "fieldtype": "Section Break",
+   "label": "After Sending",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "set_field",
+   "fieldtype": "Select",
+   "label": "Set Field"
+  },
+  {
+   "fieldname": "column_break_after_send",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "set_value",
+   "fieldtype": "Data",
+   "label": "To Value"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-10-23 18:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "WhatsApp Connect Notification",
+ "name": "WhatsApp Notification",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1
+  },
+  {
+   "role": "WhatsApp Manager",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "autoname": "field:notification_name",
+ "naming_rule": "By fieldname",
+ "track_changes": 1
+}
