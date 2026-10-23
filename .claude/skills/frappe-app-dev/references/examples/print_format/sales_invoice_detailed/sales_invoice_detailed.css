@@ -1,0 +1,76 @@
+.sales-invoice-detailed .status-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 3px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 11px;
+}
+
+.sales-invoice-detailed .status-paid {
+    background: #d9f2e6;
+    color: #1a7f4e;
+}
+
+.sales-invoice-detailed .status-unpaid {
+    background: #fdf1d1;
+    color: #a9720c;
+}
+
+.sales-invoice-detailed .status-overdue {
+    background: #fbdada;
+    color: #b02a2a;
+}
+
+.sales-invoice-detailed .status-draft {
+    background: #e5e5e5;
+    color: #555555;
+}
+
+.sales-invoice-detailed .invoice-meta {
+    margin: 15px 0;
+}
+
+.sales-invoice-detailed .meta-table td {
+    padding: 2px 6px 2px 0;
+    vertical-align: top;
+}
+
+.sales-invoice-detailed .items-table th,
+.sales-invoice-detailed .items-table td {
+    padding: 6px 8px;
+}
+
+.sales-invoice-detailed .totals-row {
+    margin-top: 15px;
+}
+
+.sales-invoice-detailed .totals-table {
+    width: 100%;
+}
+
+.sales-invoice-detailed .totals-table td {
+    padding: 3px 0;
+}
+
+.sales-invoice-detailed .grand-total td {
+    border-top: 1px solid #ccc;
+    padding-top: 6px;
+}
+
+.sales-invoice-detailed .outstanding td {
+    color: #b02a2a;
+}
+
+.sales-invoice-detailed .in-words {
+    margin-top: 8px;
+    font-size: 12px;
+}
+
+.sales-invoice-detailed .signature-row {
+    margin-top: 60px;
+}
+
+.sales-invoice-detailed .signatory-line {
+    margin-bottom: 40px;
+}

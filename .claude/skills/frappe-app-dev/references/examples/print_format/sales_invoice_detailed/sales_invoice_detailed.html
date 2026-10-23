@@ -1,0 +1,157 @@
+{%- from "templates/print_formats/standard_macros.html" import add_header -%}
+<div class="sales-invoice-detailed">
+    {{ add_header(0, 1, doc, letter_head, no_letterhead, doc.terms or "", print_settings) }}
+
+    {%- set status_class = {
+        "Paid": "status-paid",
+        "Overdue": "status-overdue",
+        "Unpaid": "status-unpaid",
+        "Partly Paid": "status-unpaid",
+        "Draft": "status-draft",
+        "Cancelled": "status-overdue"
+    } -%}
+    <div class="text-right">
+        <span class="status-badge {{ status_class.get(doc.status, 'status-unpaid') }}">
+            {{ _(doc.status) }}
+        </span>
+    </div>
+
+    <div class="row invoice-meta">
+        <div class="col-xs-6">
+            <table class="meta-table">
+                <tr>
+                    <td><strong>{{ _("Invoice No") }}:</strong></td>
+                    <td>{{ doc.name }}</td>
+                </tr>
+                <tr>
+                    <td><strong>{{ _("Invoice Date") }}:</strong></td>
+                    <td>{{ frappe.utils.format_date(doc.posting_date) }}</td>
+                </tr>
+                <tr>
+                    <td><strong>{{ _("Due Date") }}:</strong></td>
+                    <td>{{ frappe.utils.format_date(doc.due_date) }}</td>
+                </tr>
+                {%- if doc.po_no %}
+                <tr>
+                    <td><strong>{{ _("PO No") }}:</strong></td>
+                    <td>{{ doc.po_no }}</td>
+                </tr>
+                {%- endif %}
+            </table>
+        </div>
+        <div class="col-xs-6">
+            <table class="meta-table">
+                <tr>
+                    <td><strong>{{ _("Customer") }}:</strong></td>
+                    <td>{{ doc.customer_name }}</td>
+                </tr>
+                {%- if doc.address_display %}
+                <tr>
+                    <td><strong>{{ _("Billing Address") }}:</strong></td>
+                    <td>{{ doc.address_display }}</td>
+                </tr>
+                {%- endif %}
+                {%- if doc.shipping_address_name and doc.shipping_address_name != doc.customer_address %}
+                <tr>
+                    <td><strong>{{ _("Shipping Address") }}:</strong></td>
+                    <td>{{ doc.shipping_address }}</td>
+                </tr>
+                {%- endif %}
+                {%- if doc.contact_display %}
+                <tr>
+                    <td><strong>{{ _("Contact") }}:</strong></td>
+                    <td>
+                        {{ doc.contact_display }}
+                        {%- if doc.contact_mobile %} &nbsp;|&nbsp; {{ doc.contact_mobile }}{%- endif %}
+                    </td>
+                </tr>
+                {%- endif %}
+            </table>
+        </div>
+    </div>
+
+    <table class="table table-bordered items-table">
+        <thead>
+            <tr>
+                <th style="width: 30px">{{ _("Sr") }}</th>
+                <th>{{ _("Item") }}</th>
+                <th class="text-right">{{ _("Qty") }}</th>
+                <th>{{ _("UOM") }}</th>
+                <th class="text-right">{{ _("Rate") }}</th>
+                <th class="text-right">{{ _("Amount") }}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%- for row in doc.items %}
+            <tr>
+                <td>{{ row.idx }}</td>
+                <td>
+                    <strong>{{ row.item_code }}</strong>
+                    {%- if row.item_name and row.item_name != row.item_code %} - {{ row.item_name }}{%- endif %}
+                    {%- if row.description and row.description != row.item_name %}
+                        <div class="text-muted small">{{ row.description }}</div>
+                    {%- endif %}
+                </td>
+                <td class="text-right">{{ frappe.utils.flt(row.qty, 2) }}</td>
+                <td>{{ row.uom }}</td>
+                <td class="text-right">{{ frappe.utils.fmt_money(row.rate, currency=doc.currency) }}</td>
+                <td class="text-right">{{ frappe.utils.fmt_money(row.amount, currency=doc.currency) }}</td>
+            </tr>
+            {%- endfor %}
+        </tbody>
+    </table>
+
+    <div class="row totals-row">
+        <div class="col-xs-7">
+            {%- if doc.terms %}
+            <div class="terms">
+                <strong>{{ _("Terms and Conditions") }}</strong>
+                <div>{{ doc.terms }}</div>
+            </div>
+            {%- endif %}
+        </div>
+        <div class="col-xs-5">
+            <table class="totals-table">
+                <tr>
+                    <td>{{ _("Total") }}</td>
+                    <td class="text-right">{{ frappe.utils.fmt_money(doc.total, currency=doc.currency) }}</td>
+                </tr>
+                {%- for tax in doc.taxes %}
+                {%- if tax.tax_amount %}
+                <tr>
+                    <td>{{ tax.description }}</td>
+                    <td class="text-right">{{ frappe.utils.fmt_money(tax.tax_amount, currency=doc.currency) }}</td>
+                </tr>
+                {%- endif %}
+                {%- endfor %}
+                <tr class="grand-total">
+                    <td><strong>{{ _("Grand Total") }}</strong></td>
+                    <td class="text-right"><strong>{{ frappe.utils.fmt_money(doc.grand_total, currency=doc.currency) }}</strong></td>
+                </tr>
+                {%- if doc.rounded_total and doc.rounded_total != doc.grand_total %}
+                <tr>
+                    <td>{{ _("Rounded Total") }}</td>
+                    <td class="text-right">{{ frappe.utils.fmt_money(doc.rounded_total, currency=doc.currency) }}</td>
+                </tr>
+                {%- endif %}
+                {%- if doc.outstanding_amount %}
+                <tr class="outstanding">
+                    <td>{{ _("Outstanding Amount") }}</td>
+                    <td class="text-right">{{ frappe.utils.fmt_money(doc.outstanding_amount, currency=doc.currency) }}</td>
+                </tr>
+                {%- endif %}
+            </table>
+            <div class="in-words">
+                <strong>{{ _("In Words") }}:</strong> {{ doc.in_words or frappe.utils.money_in_words(doc.grand_total, doc.currency) }}
+            </div>
+        </div>
+    </div>
+
+    <div class="row signature-row">
+        <div class="col-xs-6"></div>
+        <div class="col-xs-6 text-center">
+            <p class="signatory-line">{{ _("For {0}").format(doc.company) }}</p>
+            <p class="signatory-title">{{ _("Authorized Signatory") }}</p>
+        </div>
+    </div>
+</div>
