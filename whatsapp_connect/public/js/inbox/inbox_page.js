@@ -107,7 +107,12 @@ export class InboxPage {
 	listen() {
 		const refresh_list = frappe.utils.debounce(() => this.list.refresh(), 700);
 		const refresh_chat = frappe.utils.debounce(() => this.chat.reload(), 300);
-		frappe.realtime.doctype_subscribe("WhatsApp Message");
+		// Frappe 14 has the subscription on frappe.socketio; Frappe 15 and later on frappe.realtime.
+		if (frappe.realtime.doctype_subscribe) {
+			frappe.realtime.doctype_subscribe("WhatsApp Message");
+		} else if (frappe.socketio && frappe.socketio.doctype_subscribe) {
+			frappe.socketio.doctype_subscribe("WhatsApp Message");
+		}
 		frappe.realtime.on(REALTIME_EVENT, (data) => {
 			if (!data) return;
 			refresh_list();
