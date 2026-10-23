@@ -40,6 +40,7 @@ def make_flow(name=None, **values):
 					"label": "Name",
 					"required": 1,
 					"helper_text": "As on your ID",
+					"target_field": "first_name",
 				},
 				{
 					"screen_id": "DETAILS",

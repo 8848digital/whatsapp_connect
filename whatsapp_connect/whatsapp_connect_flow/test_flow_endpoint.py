@@ -176,7 +176,9 @@ class TestFlowEndpointAndAnswers(IntegrationTestCase):
 		) as realtime:
 			self.assertEqual(receive(body, sign(body)).status_code, 200)
 		response = frappe.get_last_doc("WhatsApp Flow Response", filters={"flow_token": self.token})
-		self.assertEqual((response.flow, response.reference_doctype), (self.flow.name, "Contact"), response.error)
+		self.assertEqual(
+			(response.flow, response.reference_doctype), (self.flow.name, "Contact"), response.error
+		)
 		self.assertEqual(
 			frappe.db.get_value("Contact", response.reference_name, "designation"), answers["email"]
 		)

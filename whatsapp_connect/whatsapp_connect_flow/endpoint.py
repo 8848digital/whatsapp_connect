@@ -89,9 +89,7 @@ def __default_answer(request: dict, flow: str | None) -> dict:
 	Returns:
 	        dict: The answer object.
 	"""
-	screens = (
-		[row.screen_id for row in frappe.get_doc("WhatsApp Flow", flow).screens] if flow else []
-	)
+	screens = [row.screen_id for row in frappe.get_doc("WhatsApp Flow", flow).screens] if flow else []
 	data = request.get("data") or {}
 	current = request.get("screen")
 	if request.get("action") == "INIT" or current not in screens:
