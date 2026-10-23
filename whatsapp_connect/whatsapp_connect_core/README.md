@@ -13,7 +13,7 @@ timeline.
 | DocType | Purpose |
 | ------- | ------- |
 | WhatsApp Account | A phone number connected through a Meta app; credentials and Flow keys. |
-| WhatsApp Settings | Webhook signature policy, country code, log retention, user phone source. |
+| WhatsApp Settings | Webhook signature policy, country code, log retention, user phone source, lead capture, inbox notifications. |
 | WhatsApp Message | One sent or received message, with status, error and reference document. |
 | WhatsApp Profile | One customer number: name, contact, opt-out, last incoming time, and the conversation state of the WhatsApp Inbox (status, assignee, unread count, last message). |
 | WhatsApp Template | A message template, synced with Meta. |

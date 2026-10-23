@@ -63,9 +63,7 @@ def get_recipients(assigned_to: str | None) -> list[str]:
 	Returns:
 	        list[str]: User names; empty when notifications are off.
 	"""
-	setting = (
-		frappe.db.get_single_value("WhatsApp Settings", "inbox_notifications") or NOTIFY_ASSIGNEE_OR_ALL
-	)
+	setting = get_setting()
 	if assigned_to and setting in (NOTIFY_ASSIGNEE_OR_ALL, NOTIFY_ASSIGNEE):
 		return [assigned_to]
 	if setting != NOTIFY_ASSIGNEE_OR_ALL:
@@ -80,6 +78,18 @@ def get_recipients(assigned_to: str | None) -> list[str]:
 		"User",
 		filters={"name": ["in", users or [""]], "enabled": 1, "user_type": "System User"},
 		pluck="name",
+	)
+
+
+def get_setting() -> str:
+	"""
+	Return the Notify Agents of New Messages value of WhatsApp Settings.
+
+	Returns:
+	        str: One of the NOTIFY_* values or "Nobody".
+	"""
+	return (
+		frappe.db.get_single_value("WhatsApp Settings", "inbox_notifications") or NOTIFY_ASSIGNEE_OR_ALL
 	)
 
 

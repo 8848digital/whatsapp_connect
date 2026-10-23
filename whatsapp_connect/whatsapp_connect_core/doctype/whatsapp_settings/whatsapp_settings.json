@@ -11,6 +11,12 @@
   "role_phone_source",
   "setup_section",
   "hub_url",
+  "lead_section",
+  "create_leads",
+  "lead_doctype",
+  "column_break_lead",
+  "lead_source",
+  "lead_owner",
   "inbox_section",
   "inbox_notifications"
  ],
@@ -70,6 +76,46 @@
    "options": "Assigned user, else all agents\nAssigned user only\nNobody",
    "default": "Assigned user, else all agents",
    "description": "Agents are users with the WhatsApp Manager or WhatsApp User role. They get a popup for each message and a desk notification for each conversation with new messages."
+  },
+  {
+   "fieldname": "lead_section",
+   "fieldtype": "Section Break",
+   "label": "Lead Capture"
+  },
+  {
+   "fieldname": "create_leads",
+   "fieldtype": "Check",
+   "label": "Create a Lead for Unknown Numbers",
+   "description": "When a number that matches no Contact, Lead or Customer writes, create a Lead and link the message to it."
+  },
+  {
+   "fieldname": "lead_doctype",
+   "fieldtype": "Select",
+   "label": "Lead Type",
+   "options": "Lead\nCRM Lead",
+   "default": "Lead",
+   "depends_on": "create_leads",
+   "description": "Lead is the ERPNext Lead. CRM Lead needs the Frappe CRM app."
+  },
+  {
+   "fieldname": "column_break_lead",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "lead_source",
+   "fieldtype": "Data",
+   "label": "Lead Source",
+   "default": "WhatsApp",
+   "depends_on": "create_leads",
+   "description": "Created when it does not exist."
+  },
+  {
+   "fieldname": "lead_owner",
+   "fieldtype": "Link",
+   "label": "Lead Owner",
+   "options": "User",
+   "depends_on": "create_leads",
+   "description": "Owner of new Leads. The WhatsApp Inbox conversation is assigned to this user too."
   }
  ],
  "index_web_pages_for_search": 1,

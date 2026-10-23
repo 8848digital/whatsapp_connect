@@ -12,6 +12,7 @@ from whatsapp_connect.whatsapp_connect_core.phone import number_suffix
 # fields missing on the site (for example Lead without ERPNext) are skipped.
 PARTY_PHONE_FIELDS = (
 	("Lead", ("mobile_no", "whatsapp_no", "phone")),
+	("CRM Lead", ("mobile_no", "phone")),
 	("Customer", ("mobile_no",)),
 )
 # Doctypes whose timeline also shows the messages of their linked contacts.

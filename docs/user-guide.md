@@ -64,6 +64,12 @@ messages of its contacts.
 
 ![Contact timeline with WhatsApp messages](images/timeline.png)
 
+To make every enquiry a Lead, open **WhatsApp Settings** and select **Create a
+Lead for Unknown Numbers**. A message from a number that matches no record
+then creates a Lead with the customer's WhatsApp name and number. Set the
+**Lead Source** and the **Lead Owner** in the same section. The owner also
+gets the conversation in the WhatsApp Inbox.
+
 ### Chat in the WhatsApp Inbox
 
 Open **WhatsApp Inbox** (type it in the search bar). The left side lists the
