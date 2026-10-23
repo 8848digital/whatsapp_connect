@@ -1,0 +1,116 @@
+{
+ "actions": [],
+ "creation": "2026-10-23 18:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "enabled",
+  "allow_insecure_sites",
+  "column_break_status",
+  "hub_info",
+  "meta_section",
+  "app_id",
+  "app_secret",
+  "config_id",
+  "column_break_meta",
+  "verify_token",
+  "graph_api_url",
+  "graph_api_version"
+ ],
+ "fields": [
+  {
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "Enable Hub",
+   "description": "Lets other sites connect WhatsApp through this site's Meta app."
+  },
+  {
+   "fieldname": "allow_insecure_sites",
+   "fieldtype": "Check",
+   "label": "Allow HTTP and Private Sites",
+   "description": "Only for testing: accepts sites on http:// or on a private network."
+  },
+  {
+   "fieldname": "column_break_status",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "hub_info",
+   "fieldtype": "HTML",
+   "label": "Hub Information"
+  },
+  {
+   "fieldname": "meta_section",
+   "fieldtype": "Section Break",
+   "label": "Meta App"
+  },
+  {
+   "fieldname": "app_id",
+   "fieldtype": "Data",
+   "label": "App ID",
+   "mandatory_depends_on": "enabled"
+  },
+  {
+   "fieldname": "app_secret",
+   "fieldtype": "Password",
+   "label": "App Secret",
+   "mandatory_depends_on": "enabled"
+  },
+  {
+   "fieldname": "config_id",
+   "fieldtype": "Data",
+   "label": "Embedded Signup Configuration ID",
+   "mandatory_depends_on": "enabled",
+   "description": "Facebook Login for Business > Configurations."
+  },
+  {
+   "fieldname": "column_break_meta",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "verify_token",
+   "fieldtype": "Data",
+   "label": "Webhook Verify Token",
+   "mandatory_depends_on": "enabled"
+  },
+  {
+   "fieldname": "graph_api_url",
+   "fieldtype": "Data",
+   "label": "Graph API URL",
+   "default": "https://graph.facebook.com"
+  },
+  {
+   "fieldname": "graph_api_version",
+   "fieldtype": "Data",
+   "label": "Graph API Version",
+   "default": "v24.0"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-10-23 18:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "WhatsApp Connect Setup",
+ "name": "WhatsApp Hub Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "issingle": 1,
+ "description": "Only on the 8848 hub site: the Meta app that runs Embedded Signup for other sites.",
+ "track_changes": 1
+}

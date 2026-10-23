@@ -10,6 +10,8 @@
   "default_outgoing",
   "default_incoming",
   "send_read_receipts",
+  "setup_method",
+  "hub_connection",
   "meta_section",
   "phone_number_id",
   "display_phone_number",
@@ -19,6 +21,7 @@
   "access_token",
   "app_secret",
   "verify_token",
+  "registration_pin",
   "api_section",
   "graph_api_url",
   "graph_api_version",
@@ -27,7 +30,8 @@
   "flows_section",
   "flow_private_key",
   "column_break_flow_keys",
-  "flow_public_key"
+  "flow_public_key",
+  "flow_endpoint_url"
  ],
  "fields": [
   {
@@ -62,6 +66,21 @@
    "fieldtype": "Check",
    "label": "Send Read Receipts",
    "description": "Mark incoming messages as read in WhatsApp as soon as they arrive."
+  },
+  {
+   "fieldname": "setup_method",
+   "fieldtype": "Select",
+   "label": "Setup Method",
+   "options": "Manual\nEmbedded Signup",
+   "default": "Manual",
+   "description": "Embedded Signup: connected with WhatsApp Setup > Connect with Facebook; webhooks come through the hub."
+  },
+  {
+   "fieldname": "hub_connection",
+   "fieldtype": "Data",
+   "label": "Hub Connection",
+   "read_only": 1,
+   "depends_on": "eval:doc.setup_method=='Embedded Signup'"
   },
   {
    "fieldname": "meta_section",
@@ -118,6 +137,12 @@
    "description": "Any secret text. Enter the same text in the webhook settings in Meta."
   },
   {
+   "fieldname": "registration_pin",
+   "fieldtype": "Password",
+   "label": "Two-Step Verification PIN",
+   "description": "The 6-digit PIN of the number. WhatsApp Setup creates it when it registers the number."
+  },
+  {
    "fieldname": "api_section",
    "fieldtype": "Section Break",
    "label": "Graph API"
@@ -168,11 +193,18 @@
    "fieldtype": "Long Text",
    "label": "Flow Public Key",
    "read_only": 1
+  },
+  {
+   "fieldname": "flow_endpoint_url",
+   "fieldtype": "Small Text",
+   "label": "Flow Endpoint URL",
+   "read_only": 1,
+   "description": "Empty: this site's endpoint. Set by WhatsApp Setup for Embedded Signup."
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-10-23 18:00:00.000000",
+ "modified": "2026-10-23 20:00:00.000000",
  "modified_by": "Administrator",
  "module": "WhatsApp Connect Core",
  "name": "WhatsApp Account",

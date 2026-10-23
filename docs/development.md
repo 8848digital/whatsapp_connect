@@ -31,7 +31,7 @@ On Frappe 14 and 15, run ERPNext's test setup once:
 
 ## Code layout
 
-Four modules, each with `api/v1/` (the only place for whitelisted
+Five modules, each with `api/v1/` (the only place for whitelisted
 functions), `doctype/` and a `README.md`:
 
 | Module | Contents |
@@ -40,6 +40,7 @@ functions), `doctype/` and a `README.md`:
 | `whatsapp_connect_notification` | Notifications, recipients, attachments, scheduled jobs |
 | `whatsapp_connect_campaign` | Recipient lists, campaigns, batch sender, reports |
 | `whatsapp_connect_flow` | Flows, Meta Flow API, encryption, endpoint, answers |
+| `whatsapp_connect_setup` | WhatsApp Setup page, own-app setup, Embedded Signup hub and relay |
 
 Controllers only call functions in a sibling `*_utils.py` file. Modules
 extend each other through hooks in `hooks.py`:

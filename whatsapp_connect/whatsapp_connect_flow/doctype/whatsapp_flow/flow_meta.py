@@ -35,7 +35,7 @@ def save_to_meta(flow_name: str) -> list:
 	if not flow.flow_json:
 		frappe.throw(_("Add screens and components, or write the Flow JSON, first"))
 	api = CloudAPI(flow.whatsapp_account)
-	endpoint = frappe.utils.get_url(ENDPOINT_PATH) if flow.use_endpoint else None
+	endpoint = __endpoint_url(flow.whatsapp_account) if flow.use_endpoint else None
 	if flow.meta_flow_id:
 		flow_api.update_flow(api, flow.meta_flow_id, flow.flow_name, [flow.category], endpoint)
 	else:
@@ -205,3 +205,17 @@ def __describe(errors) -> str:
 			f"{error.get('error_type') or error.get('error')}: {error.get('message')} {where}".strip()
 		)
 	return "\n".join(lines)
+
+
+def __endpoint_url(account: str) -> str:
+	"""
+	Return the data endpoint URL for flows of an account.
+
+	Parameters:
+	        account (str, required): The WhatsApp Account name.
+
+	Returns:
+	        str: The account's Flow Endpoint URL (set for Embedded Signup), or this site's endpoint.
+	"""
+	custom = frappe.db.get_value("WhatsApp Account", account, "flow_endpoint_url")
+	return custom or frappe.utils.get_url(ENDPOINT_PATH)

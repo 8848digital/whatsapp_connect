@@ -2,6 +2,17 @@
 
 # Features
 
+## Setup
+
+| Feature | Details |
+| ------- | ------- |
+| WhatsApp Setup page | Connects and tests a number from the desk; no work in the Meta App Dashboard. |
+| Connect with Facebook | Meta's Embedded Signup through the 8848 hub: log in, choose the business, add and verify the number. The site gets a token that does not expire. Numbers that stay on the WhatsApp Business app are supported. |
+| Use my own Meta app | Checks the token, lists its business accounts and numbers, and sets the app webhook through the Graph API. Warns when the token expires. |
+| Setup steps | Check the number, register it with a two-step verification PIN, connect webhooks, sync templates, create Flow keys. Each step shows its result. |
+| Tests | Send `hello_world` to a number; wait for a message from your phone. |
+| Hub mode | One site (8848's) runs Embedded Signup for all sites and relays Meta's webhooks and Flow calls, signed with a secret for each site. The hub keeps no customer token. |
+
 ## Accounts and security
 
 | Feature | Details |

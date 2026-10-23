@@ -32,6 +32,7 @@ custom_fixtures = [
 					"WhatsApp Connect Notification",
 					"WhatsApp Connect Campaign",
 					"WhatsApp Connect Flow",
+					"WhatsApp Connect Setup",
 				],
 			]
 		},
@@ -56,6 +57,7 @@ scheduler_events = {
 	"daily": [
 		"whatsapp_connect.whatsapp_connect_core.tasks.clear_old_logs",
 		f"{_NOTIFICATION_TASKS}.run_daily",
+		"whatsapp_connect.whatsapp_connect_setup.hub.tasks.delete_stale_sessions",
 	],
 	"weekly": [f"{_NOTIFICATION_TASKS}.run_weekly"],
 	"monthly": [f"{_NOTIFICATION_TASKS}.run_monthly"],
