@@ -19,10 +19,14 @@ class TestInboxNotifications(WebhookTestCase):
 	def setUp(self):
 		"""Notify the assignee, else all agents (the default)."""
 		super().setUp()
-		frappe.db.set_single_value(
-			"WhatsApp Settings", "inbox_notifications", notifications.NOTIFY_ASSIGNEE_OR_ALL
-		)
+		self.use_setting(notifications.NOTIFY_ASSIGNEE_OR_ALL)
 		self.agent = self.make_agent("wac.agent@example.com")
+
+	def use_setting(self, value: str):
+		"""Patch Notify Agents of New Messages until the test ends."""
+		patcher = patch(f"{notifications.__name__}.get_setting", return_value=value)
+		patcher.start()
+		self.addCleanup(patcher.stop)
 
 	def make_agent(self, email: str) -> str:
 		"""Create an enabled user with the WhatsApp User role."""
@@ -62,7 +66,7 @@ class TestInboxNotifications(WebhookTestCase):
 		self.assertEqual(notify.call_args.args[0], [other])
 
 	def test_nobody_setting_turns_notifications_off(self):
-		frappe.db.set_single_value("WhatsApp Settings", "inbox_notifications", "Nobody")
+		self.use_setting("Nobody")
 		popups, notify = self.receive("Hi")
 		self.assertEqual(popups, [])
 		notify.assert_not_called()

@@ -96,6 +96,7 @@ whatsapp_connect_payload_builders = {
 }
 # Called with each saved incoming WhatsApp Message.
 whatsapp_connect_incoming_handlers = [
+	"whatsapp_connect.whatsapp_connect_core.messaging.lead_capture.handle_incoming",
 	"whatsapp_connect.whatsapp_connect_flow.responses.handle_incoming",
 	"whatsapp_connect.whatsapp_connect_inbox.notifications.handle_incoming",
 ]

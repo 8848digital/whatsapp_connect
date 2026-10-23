@@ -102,7 +102,8 @@ Something did not work? Each setup step shows the reason; see
 - **Conversations in the timeline.** Messages appear in the timeline of their
   document; incoming messages are linked to the Contact, Lead or Customer
   with the same number. Customers, suppliers and leads also show their
-  contacts' chats. **Reply** opens the dialog.
+  contacts' chats. **Reply** opens the dialog. Optionally, a message from an
+  unknown number creates a Lead (ERPNext or Frappe CRM), so no enquiry is lost.
 
   ![Contact timeline with WhatsApp messages and Reply links](docs/images/timeline.png)
 

@@ -39,7 +39,8 @@
 
 | Feature | Details |
 | ------- | ------- |
-| Contact linking | Incoming messages are linked to the Contact, Lead or Customer with the same number (any format). |
+| Contact linking | Incoming messages are linked to the Contact, Lead, CRM Lead or Customer with the same number (any format). |
+| Lead capture | Optional: a message from a number that matches no record creates a Lead (ERPNext) or a CRM Lead (Frappe CRM) with the WhatsApp name, number, source and owner, and the message is linked to it. The next messages find the Lead, so there are no duplicates. |
 | Timeline | Messages show as cards in their document's timeline; Customer, Supplier and Lead include their contacts' messages. |
 | Profiles | One WhatsApp Profile per number, with the WhatsApp name and the linked Contact. |
 | Opt-out | STOP / START keywords; templates, notifications and campaigns skip opted-out numbers. |
