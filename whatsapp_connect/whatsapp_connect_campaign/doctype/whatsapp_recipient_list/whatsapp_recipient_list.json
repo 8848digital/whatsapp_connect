@@ -1,0 +1,143 @@
+{
+ "actions": [],
+ "creation": "2026-10-23 18:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "list_name",
+  "description",
+  "column_break_count",
+  "recipient_count",
+  "import_section",
+  "source_doctype",
+  "phone_field",
+  "name_field",
+  "column_break_import",
+  "variable_fields",
+  "import_filters",
+  "import_limit",
+  "recipients_section",
+  "recipients"
+ ],
+ "fields": [
+  {
+   "fieldname": "list_name",
+   "fieldtype": "Data",
+   "label": "List Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "column_break_count",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "recipient_count",
+   "fieldtype": "Int",
+   "label": "Recipients",
+   "read_only": 1
+  },
+  {
+   "fieldname": "import_section",
+   "fieldtype": "Section Break",
+   "label": "Import from a Document Type",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "source_doctype",
+   "fieldtype": "Link",
+   "label": "Document Type",
+   "options": "DocType"
+  },
+  {
+   "fieldname": "phone_field",
+   "fieldtype": "Data",
+   "label": "Phone Field",
+   "description": "For example mobile_no."
+  },
+  {
+   "fieldname": "name_field",
+   "fieldtype": "Data",
+   "label": "Name Field",
+   "description": "For example customer_name."
+  },
+  {
+   "fieldname": "column_break_import",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "variable_fields",
+   "fieldtype": "Small Text",
+   "label": "Variable Fields",
+   "description": "One field per line, for {{1}}, {{2}}..."
+  },
+  {
+   "fieldname": "import_filters",
+   "fieldtype": "Code",
+   "label": "Filters",
+   "options": "JSON",
+   "description": "For example {\"disabled\": 0}."
+  },
+  {
+   "fieldname": "import_limit",
+   "fieldtype": "Int",
+   "label": "Maximum Records",
+   "default": "1000"
+  },
+  {
+   "fieldname": "recipients_section",
+   "fieldtype": "Section Break",
+   "label": "Recipients"
+  },
+  {
+   "fieldname": "recipients",
+   "fieldtype": "Table",
+   "label": "Recipients",
+   "options": "WhatsApp Recipient"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-10-23 18:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "WhatsApp Connect Campaign",
+ "name": "WhatsApp Recipient List",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1
+  },
+  {
+   "role": "WhatsApp Manager",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "autoname": "field:list_name",
+ "naming_rule": "By fieldname",
+ "track_changes": 1
+}

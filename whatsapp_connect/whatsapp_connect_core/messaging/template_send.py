@@ -16,6 +16,7 @@ def send_template(
 	account: str | None = None,
 	source: str | None = None,
 	skip_send: bool = False,
+	campaign: str | None = None,
 ):
 	"""
 	Create (and send) a template message.
@@ -29,6 +30,7 @@ def send_template(
 	        account (str, optional): Sending WhatsApp Account; defaults to the template's account.
 	        source (str, optional): What sends the message, for example "Notification: X".
 	        skip_send (bool, optional): Save the message without sending it.
+	        campaign (str, optional): The WhatsApp Campaign that sends the message.
 
 	Returns:
 	        Document: The inserted WhatsApp Message (status Sent, Failed or Opted Out).
@@ -46,6 +48,7 @@ def send_template(
 			"reference_doctype": doc.doctype if doc else None,
 			"reference_name": doc.name if doc else None,
 			"source": source,
+			"campaign": campaign,
 		}
 	)
 	message.flags.skip_send = skip_send

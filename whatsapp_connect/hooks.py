@@ -37,7 +37,11 @@ before_install = "whatsapp_connect.install.before_install"
 _NOTIFICATION_TASKS = "whatsapp_connect.whatsapp_connect_notification.tasks"
 
 scheduler_events = {
-	"hourly": [f"{_NOTIFICATION_TASKS}.run_hourly"],
+	"all": ["whatsapp_connect.whatsapp_connect_campaign.tasks.start_due_campaigns"],
+	"hourly": [
+		f"{_NOTIFICATION_TASKS}.run_hourly",
+		"whatsapp_connect.whatsapp_connect_campaign.tasks.refresh_running_campaigns",
+	],
 	"daily": [
 		"whatsapp_connect.whatsapp_connect_core.tasks.clear_old_logs",
 		f"{_NOTIFICATION_TASKS}.run_daily",

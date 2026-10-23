@@ -20,7 +20,11 @@ BUTTON_SUB_TYPES = {
 	"One-Time Password": "url",
 	"Copy Code": "copy_code",
 	"Flow": "flow",
+	"Catalog": "catalog",
+	"Multi-Product": "mpm",
 }
+# Buttons whose value is an action object, for example the products of a multi-product message.
+ACTION_SUB_TYPES = ("catalog", "mpm")
 
 
 def build_template_object(message, api: CloudAPI) -> dict:
@@ -133,6 +137,8 @@ def __buttons(template, params: dict) -> list[dict]:
 			parameter = {"type": "coupon_code", "coupon_code": value}
 		elif sub_type == "flow":
 			parameter = {"type": "action", "action": {"flow_token": value}}
+		elif sub_type in ACTION_SUB_TYPES:
+			parameter = {"type": "action", "action": value}
 		else:
 			parameter = {"type": "text", "text": value}
 		components.append(
