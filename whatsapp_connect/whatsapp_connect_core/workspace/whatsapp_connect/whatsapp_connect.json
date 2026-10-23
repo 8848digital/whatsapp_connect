@@ -6,7 +6,7 @@
    "label": "WhatsApp Messages"
   }
  ],
- "content": "[{\"id\": \"7f7c74d66e\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"Open WhatsApp Conversations\", \"col\": 3}}, {\"id\": \"1b75d39163\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"Unread WhatsApp Conversations\", \"col\": 3}}, {\"id\": \"3e9a09bb26\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"WhatsApp Messages Received Today\", \"col\": 3}}, {\"id\": \"d50dfd2251\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"Failed WhatsApp Messages This Week\", \"col\": 3}}, {\"id\": \"8a3b4d0c4f\", \"type\": \"chart\", \"data\": {\"chart_name\": \"WhatsApp Messages\", \"col\": 12}}, {\"id\": \"e03c4c0fa6\", \"type\": \"spacer\", \"data\": {\"col\": 12}}, {\"id\": \"ebf87251d0\", \"type\": \"header\", \"data\": {\"text\": \"<span class=\\\"h4\\\"><b>Your Shortcuts</b></span>\", \"col\": 12}}, {\"id\": \"4a798b0153\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"WhatsApp Inbox\", \"col\": 3}}, {\"id\": \"3daa11ea17\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"WhatsApp Message\", \"col\": 3}}, {\"id\": \"b59c6227ad\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"WhatsApp Template\", \"col\": 3}}, {\"id\": \"ed182289e7\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"WhatsApp Campaign\", \"col\": 3}}, {\"id\": \"41e3af67d9\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"WhatsApp Notification\", \"col\": 3}}, {\"id\": \"75d26be1fa\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"WhatsApp Auto Reply\", \"col\": 3}}, {\"id\": \"538af7fa67\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"WhatsApp Delivery Summary\", \"col\": 3}}, {\"id\": \"e773d26efd\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"WhatsApp Setup\", \"col\": 3}}, {\"id\": \"544930c9a6\", \"type\": \"spacer\", \"data\": {\"col\": 12}}, {\"id\": \"6a92cc8477\", \"type\": \"header\", \"data\": {\"text\": \"<span class=\\\"h4\\\"><b>Reports &amp; Masters</b></span>\", \"col\": 12}}, {\"id\": \"ffe4c45e0b\", \"type\": \"card\", \"data\": {\"card_name\": \"Messaging\", \"col\": 4}}, {\"id\": \"6157d67fb0\", \"type\": \"card\", \"data\": {\"card_name\": \"Automation\", \"col\": 4}}, {\"id\": \"db7f271ada\", \"type\": \"card\", \"data\": {\"card_name\": \"Campaigns\", \"col\": 4}}, {\"id\": \"63501e4e8d\", \"type\": \"card\", \"data\": {\"card_name\": \"Reports\", \"col\": 4}}, {\"id\": \"148f48391b\", \"type\": \"card\", \"data\": {\"card_name\": \"Setup\", \"col\": 4}}]",
+ "content": "[{\"id\": \"37dbb3b4e9\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"Open WhatsApp Chats\", \"col\": 3}}, {\"id\": \"d1b11b687e\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"Unread WhatsApp Chats\", \"col\": 3}}, {\"id\": \"b71bffcee5\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"WhatsApp Received Today\", \"col\": 3}}, {\"id\": \"0d280be39c\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"WhatsApp Failed This Week\", \"col\": 3}}, {\"id\": \"8a3b4d0c4f\", \"type\": \"chart\", \"data\": {\"chart_name\": \"WhatsApp Messages\", \"col\": 12}}, {\"id\": \"e03c4c0fa6\", \"type\": \"spacer\", \"data\": {\"col\": 12}}, {\"id\": \"ebf87251d0\", \"type\": \"header\", \"data\": {\"text\": \"<span class=\\\"h4\\\"><b>Your Shortcuts</b></span>\", \"col\": 12}}, {\"id\": \"4a798b0153\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"WhatsApp Inbox\", \"col\": 3}}, {\"id\": \"3daa11ea17\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"WhatsApp Message\", \"col\": 3}}, {\"id\": \"b59c6227ad\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"WhatsApp Template\", \"col\": 3}}, {\"id\": \"ed182289e7\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"WhatsApp Campaign\", \"col\": 3}}, {\"id\": \"41e3af67d9\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"WhatsApp Notification\", \"col\": 3}}, {\"id\": \"75d26be1fa\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"WhatsApp Auto Reply\", \"col\": 3}}, {\"id\": \"538af7fa67\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"WhatsApp Delivery Summary\", \"col\": 3}}, {\"id\": \"e773d26efd\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"WhatsApp Setup\", \"col\": 3}}, {\"id\": \"544930c9a6\", \"type\": \"spacer\", \"data\": {\"col\": 12}}, {\"id\": \"6a92cc8477\", \"type\": \"header\", \"data\": {\"text\": \"<span class=\\\"h4\\\"><b>Reports &amp; Masters</b></span>\", \"col\": 12}}, {\"id\": \"ffe4c45e0b\", \"type\": \"card\", \"data\": {\"card_name\": \"Messaging\", \"col\": 4}}, {\"id\": \"6157d67fb0\", \"type\": \"card\", \"data\": {\"card_name\": \"Automation\", \"col\": 4}}, {\"id\": \"db7f271ada\", \"type\": \"card\", \"data\": {\"card_name\": \"Campaigns\", \"col\": 4}}, {\"id\": \"63501e4e8d\", \"type\": \"card\", \"data\": {\"card_name\": \"Reports\", \"col\": 4}}, {\"id\": \"148f48391b\", \"type\": \"card\", \"data\": {\"card_name\": \"Setup\", \"col\": 4}}]",
  "creation": "2026-10-24 16:00:00.000000",
  "custom_blocks": [],
  "docstatus": 0,
@@ -241,26 +241,26 @@
    "type": "Link"
   }
  ],
- "modified": "2026-10-24 16:00:00.000000",
+ "modified": "2026-10-24 18:00:00.000000",
  "modified_by": "Administrator",
  "module": "WhatsApp Connect Core",
  "name": "WhatsApp Connect",
  "number_cards": [
   {
-   "label": "Open Conversations",
-   "number_card_name": "Open WhatsApp Conversations"
+   "label": "Open WhatsApp Chats",
+   "number_card_name": "Open WhatsApp Chats"
   },
   {
-   "label": "Unread Conversations",
-   "number_card_name": "Unread WhatsApp Conversations"
+   "label": "Unread WhatsApp Chats",
+   "number_card_name": "Unread WhatsApp Chats"
   },
   {
-   "label": "Received Today",
-   "number_card_name": "WhatsApp Messages Received Today"
+   "label": "WhatsApp Received Today",
+   "number_card_name": "WhatsApp Received Today"
   },
   {
-   "label": "Failed This Week",
-   "number_card_name": "Failed WhatsApp Messages This Week"
+   "label": "WhatsApp Failed This Week",
+   "number_card_name": "WhatsApp Failed This Week"
   }
  ],
  "owner": "Administrator",
