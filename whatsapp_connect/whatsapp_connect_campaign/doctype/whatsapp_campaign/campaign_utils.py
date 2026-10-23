@@ -5,6 +5,7 @@
 
 import frappe
 from frappe import _
+from frappe.query_builder.functions import Count
 from frappe.utils import get_datetime, now_datetime
 
 from whatsapp_connect.whatsapp_connect_core.doctype.whatsapp_template.template_utils import (
@@ -140,11 +141,13 @@ def refresh_counts(campaign_name: str) -> dict:
 	Returns:
 	        dict: The counts, by field name.
 	"""
-	statuses = frappe.get_all(
-		"WhatsApp Message",
-		filters={"campaign": campaign_name},
-		fields=["status", "count(name) as total"],
-		group_by="status",
+	message = frappe.qb.DocType("WhatsApp Message")
+	statuses = (
+		frappe.qb.from_(message)
+		.select(message.status, Count(message.name).as_("total"))
+		.where(message.campaign == campaign_name)
+		.groupby(message.status)
+		.run(as_dict=True)
 	)
 	by_status = {row.status: row.total for row in statuses}
 	counts = {
