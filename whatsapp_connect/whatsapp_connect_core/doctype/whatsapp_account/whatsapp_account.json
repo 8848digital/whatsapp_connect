@@ -1,0 +1,184 @@
+{
+ "actions": [],
+ "creation": "2026-10-23 18:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "account_name",
+  "enabled",
+  "column_break_status",
+  "default_outgoing",
+  "default_incoming",
+  "send_read_receipts",
+  "meta_section",
+  "phone_number_id",
+  "display_phone_number",
+  "business_account_id",
+  "app_id",
+  "column_break_credentials",
+  "access_token",
+  "app_secret",
+  "verify_token",
+  "api_section",
+  "graph_api_url",
+  "graph_api_version",
+  "column_break_webhook",
+  "webhook_info"
+ ],
+ "fields": [
+  {
+   "fieldname": "account_name",
+   "fieldtype": "Data",
+   "label": "Account Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "Enabled",
+   "default": "1"
+  },
+  {
+   "fieldname": "column_break_status",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "default_outgoing",
+   "fieldtype": "Check",
+   "label": "Default for Outgoing Messages"
+  },
+  {
+   "fieldname": "default_incoming",
+   "fieldtype": "Check",
+   "label": "Default for Incoming Messages"
+  },
+  {
+   "fieldname": "send_read_receipts",
+   "fieldtype": "Check",
+   "label": "Send Read Receipts",
+   "description": "Mark incoming messages as read in WhatsApp as soon as they arrive."
+  },
+  {
+   "fieldname": "meta_section",
+   "fieldtype": "Section Break",
+   "label": "Meta App"
+  },
+  {
+   "fieldname": "phone_number_id",
+   "fieldtype": "Data",
+   "label": "Phone Number ID",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "display_phone_number",
+   "fieldtype": "Data",
+   "label": "Display Phone Number"
+  },
+  {
+   "fieldname": "business_account_id",
+   "fieldtype": "Data",
+   "label": "WhatsApp Business Account ID",
+   "reqd": 1
+  },
+  {
+   "fieldname": "app_id",
+   "fieldtype": "Data",
+   "label": "App ID"
+  },
+  {
+   "fieldname": "column_break_credentials",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "access_token",
+   "fieldtype": "Password",
+   "label": "Access Token",
+   "reqd": 1,
+   "length": 512,
+   "description": "Use a permanent System User token in production."
+  },
+  {
+   "fieldname": "app_secret",
+   "fieldtype": "Password",
+   "label": "App Secret",
+   "description": "Meta App Dashboard > App settings > Basic. Webhook calls must be signed with it."
+  },
+  {
+   "fieldname": "verify_token",
+   "fieldtype": "Data",
+   "label": "Webhook Verify Token",
+   "reqd": 1,
+   "unique": 1,
+   "description": "Any secret text. Enter the same text in the webhook settings in Meta."
+  },
+  {
+   "fieldname": "api_section",
+   "fieldtype": "Section Break",
+   "label": "Graph API"
+  },
+  {
+   "fieldname": "graph_api_url",
+   "fieldtype": "Data",
+   "label": "Graph API URL",
+   "default": "https://graph.facebook.com",
+   "reqd": 1
+  },
+  {
+   "fieldname": "graph_api_version",
+   "fieldtype": "Data",
+   "label": "Graph API Version",
+   "default": "v21.0",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_webhook",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "webhook_info",
+   "fieldtype": "HTML",
+   "label": "Webhook"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-10-23 18:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "WhatsApp Connect Core",
+ "name": "WhatsApp Account",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1
+  },
+  {
+   "role": "WhatsApp Manager",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "autoname": "field:account_name",
+ "naming_rule": "By fieldname",
+ "track_changes": 1
+}
