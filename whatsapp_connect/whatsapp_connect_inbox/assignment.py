@@ -7,6 +7,7 @@ import frappe
 from frappe import _
 
 from whatsapp_connect.whatsapp_connect_inbox.conversations import check_access, get_profile_name
+from whatsapp_connect.whatsapp_connect_inbox.notifications import inbox_link
 
 AGENT_ROLES = ("System Manager", "WhatsApp Manager", "WhatsApp User")
 
@@ -94,5 +95,6 @@ def __notify_assignee(number: str, user: str) -> None:
 				frappe.utils.get_fullname(frappe.session.user), name
 			),
 			"from_user": frappe.session.user,
+			"link": inbox_link(number),
 		},
 	)

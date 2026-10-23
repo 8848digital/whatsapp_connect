@@ -13,6 +13,10 @@ module keeps the last message, the unread count and the status up to date
 (`whatsapp_connect_core/messaging/conversation.py`) and sends a realtime
 event for each new message and status change.
 
+`notifications.py` tells agents about new messages (an incoming handler): a
+realtime popup (`public/js/inbox_notifications.js`, on every desk page) and a
+desk notification (Notification Log) that links to the chat.
+
 ## DocTypes
 
 | DocType | Purpose |

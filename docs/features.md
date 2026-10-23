@@ -57,6 +57,7 @@
 | Quick replies | WhatsApp Quick Reply: type / and the shortcut to insert a saved answer. |
 | Status and assignment | Open, Pending, Closed. A message from the customer opens a closed conversation again. Assign to a user with a WhatsApp role; the user gets a notification. |
 | New message | Start a conversation with any number by sending a template. |
+| Notifications | For each new message: a popup on any desk page, or a browser notification when the tab is in the background (after **Turn on desktop notifications** in the inbox). The first unread message of a conversation also adds a desk notification (bell icon). Clicking any of them opens the chat. Goes to the assigned user, else to all agents; set in WhatsApp Settings. |
 | Link to the record | The chat header links to the Contact, Lead or Customer of the conversation; template variables are filled from it. |
 
 ## Send from any document

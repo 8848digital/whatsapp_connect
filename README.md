@@ -94,6 +94,8 @@ Something did not work? Each setup step shows the reason; see
   Assign a conversation, set it to Open, Pending or Closed, reply with
   text, a file, a quick reply or a template, and see when the 24-hour
   reply window closes. **New Message** starts a chat with any number.
+  Agents get a popup, a browser notification and a desk notification for
+  new messages; a click opens the chat.
 
   ![WhatsApp Inbox with a conversation open](docs/images/inbox.png)
 

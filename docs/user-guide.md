@@ -82,6 +82,13 @@ a template with **New Message**.
 WhatsApp allows free text only within 24 hours of the customer's last
 message. After that, click **Template** to send an approved template.
 
+When a message arrives, a popup shows on any desk page, and the bell icon
+gets a notification. Click either to open the chat. To get notifications
+when the browser tab is in the background, click **Turn on desktop
+notifications** in the inbox and allow them in the browser. The assigned
+user gets the notifications. When nobody is assigned, all agents get them.
+Change this in **WhatsApp Settings** > **Notify Agents of New Messages**.
+
 ![WhatsApp Inbox with a conversation open](images/inbox.png)
 
 ## 5. Send messages automatically

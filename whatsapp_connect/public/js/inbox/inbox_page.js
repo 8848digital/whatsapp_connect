@@ -29,6 +29,7 @@ export class InboxPage {
 			on_back: () => this.show_list(),
 		});
 		this.page.set_primary_action(__("New Message"), () => this.new_message(), "add");
+		this.offer_desktop_notifications();
 		this.listen();
 		this.list.refresh();
 	}
@@ -81,6 +82,18 @@ export class InboxPage {
 				this.list.refresh();
 				this.open(number);
 			},
+		});
+	}
+
+	/**
+	 * Show a button that turns on desktop notifications, until the user answers the browser.
+	 *
+	 * @returns {void}
+	 */
+	offer_desktop_notifications() {
+		if (!window.Notification || Notification.permission !== "default") return;
+		const $button = this.page.add_button(__("Turn on desktop notifications"), () => {
+			whatsapp_connect.notifications.request_permission().then(() => $button.remove());
 		});
 	}
 
