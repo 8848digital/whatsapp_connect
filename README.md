@@ -130,7 +130,9 @@ Something did not work? Each setup step shows the reason; see
 - **Notifications** on document events (new, save, submit, cancel, delete,
   value change), dates (days before/after) and schedules. Send to a phone
   field, the party's mobile number (Payment Entry, Payment Request), other
-  numbers or users with a role. Attach the document print as a PDF.
+  numbers or users with a role. Attach the document print as a PDF. Add a
+  **payment link** for an invoice or order (ERPNext Payment Request), in the
+  text or as a Pay now button.
 
   ![Payment receipt notification on Payment Entry](docs/images/notification.png)
 

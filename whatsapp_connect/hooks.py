@@ -105,6 +105,13 @@ whatsapp_connect_incoming_handlers = [
 	"whatsapp_connect.whatsapp_connect_inbox.notifications.handle_incoming",
 	"whatsapp_connect.whatsapp_connect_automation.auto_reply.handle_incoming",
 ]
+# Computed values for template mappings: {"<name>": "<dotted.path>"}; the function
+# gets the document and returns the value (whatsapp_connect_core/messaging/template_params.py).
+_PAYMENT = "whatsapp_connect.whatsapp_connect_payment.payment_link"
+whatsapp_connect_value_providers = {
+	"payment_link": f"{_PAYMENT}.payment_link",
+	"payment_link_token": f"{_PAYMENT}.payment_link_token",
+}
 # Auto-reply actions: {"<name>": "<dotted.path>"}; the function gets the incoming
 # WhatsApp Message and returns the reply text (whatsapp_connect_automation/actions.py).
 whatsapp_connect_auto_reply_actions = {

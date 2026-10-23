@@ -134,6 +134,9 @@ def field_value(doc, fieldname: str | None) -> str | None:
 	"""
 	Read a document field as display text (currency and dates formatted).
 
+	A name registered in the whatsapp_connect_value_providers hook (for example
+	"payment_link") is computed by its function instead of read from a field.
+
 	Parameters:
 	        doc (Document, optional): The document.
 	        fieldname (str, optional): The field name.
@@ -143,7 +146,26 @@ def field_value(doc, fieldname: str | None) -> str | None:
 	"""
 	if doc is None or not fieldname:
 		return None
+	provider = __value_provider(fieldname)
+	if provider:
+		return str(provider(doc) or "")
 	if hasattr(doc, "get_formatted") and doc.meta.has_field(fieldname):
 		return str(doc.get_formatted(fieldname) or "")
 	value = doc.get(fieldname)
 	return None if value is None else str(value)
+
+
+def __value_provider(name: str):
+	"""
+	Return the function registered for a computed value name, if any.
+
+	Parameters:
+	        name (str, required): The mapped name, for example "payment_link".
+
+	Returns:
+	        callable | None: The function that takes the document and returns the value.
+	"""
+	paths = (frappe.get_hooks("whatsapp_connect_value_providers") or {}).get(name)
+	if not paths:
+		return None
+	return frappe.get_attr(paths[-1] if isinstance(paths, list) else paths)

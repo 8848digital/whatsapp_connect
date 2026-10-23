@@ -28,7 +28,12 @@ def render_preview(
 	if doctype and name:
 		doc = frappe.get_doc(doctype, name)
 		doc.check_permission("read")
-	params = get_template_params(template, doc)
+	# Value providers must not act for a preview, for example make a Payment Request.
+	frappe.flags.whatsapp_connect_preview = True
+	try:
+		params = get_template_params(template, doc)
+	finally:
+		frappe.flags.whatsapp_connect_preview = False
 
 	body = template.body or ""
 	for index, value in enumerate(params["body"], start=1):

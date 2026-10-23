@@ -157,9 +157,20 @@ condition `doc.payment_type == "Receive"`, a template with the fields
 `party_name`, `paid_amount`, `name`, Send to the Party's Mobile Number, and
 Attach Document Print.
 
-**Example — payment link:** Document Type *Payment Request*, When *Submit*,
-a template with a URL button ending in `{{1}}`, and `payment_url` in the
-button's **Value from Field**.
+**Example — payment link:** Document Type *Sales Invoice*, When *Submit*,
+and a template whose body has a variable for the link, for example "Pay
+invoice {{1}} here: {{2}}". Map the variables to `name` and `payment_link`.
+WhatsApp Connect makes an ERPNext Payment Request for the invoice (or uses an
+open one) and sends its payment URL. This needs a Payment Gateway Account in
+ERPNext. `payment_link` works for Sales Invoice, Sales Order and Payment
+Request, in notifications, campaigns and the Send WhatsApp dialog. The preview
+shows "(payment link)" and makes no Payment Request.
+
+For a **Pay now** button instead, add a URL button with the URL
+`https://<your site>/whatsapp_pay?t={{1}}` and `payment_link_token` in
+**Value from Field**. The button opens a page on your site that checks the
+signed token and opens the payment page. A paid or cancelled request shows
+"This payment link is not valid".
 
 ## 6. Send a campaign
 
