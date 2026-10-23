@@ -17,6 +17,8 @@ from whatsapp_connect.whatsapp_connect_core.cloud_api import CloudAPI
 from whatsapp_connect.whatsapp_connect_core.messaging.media import get_media_object
 
 MEDIA_TYPES = ("image", "document", "video", "audio", "sticker")
+# Message types that Meta receives under another type: a Flow is an interactive message.
+WIRE_TYPES = {"flow": "interactive"}
 CAPTION_TYPES = ("image", "document", "video")
 MAX_BUTTONS = 3
 MAX_LIST_ROWS = 10
@@ -34,16 +36,17 @@ def build_payload(message, api: CloudAPI) -> dict:
 	Returns:
 	        dict: The Cloud API message object.
 	"""
+	wire_type = WIRE_TYPES.get(message.message_type, message.message_type)
 	payload = {
 		"recipient_type": "individual",
 		"to": message.phone_number,
-		"type": message.message_type,
+		"type": wire_type,
 	}
 	if message.reply_to_wamid and message.message_type != "reaction":
 		payload["context"] = {"message_id": message.reply_to_wamid}
 
 	builder = __get_builder(message.message_type)
-	payload[message.message_type] = builder(message, api)
+	payload[wire_type] = builder(message, api)
 	return payload
 
 

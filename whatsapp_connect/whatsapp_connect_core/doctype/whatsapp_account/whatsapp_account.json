@@ -23,7 +23,11 @@
   "graph_api_url",
   "graph_api_version",
   "column_break_webhook",
-  "webhook_info"
+  "webhook_info",
+  "flows_section",
+  "flow_private_key",
+  "column_break_flow_keys",
+  "flow_public_key"
  ],
  "fields": [
   {
@@ -140,6 +144,30 @@
    "fieldname": "webhook_info",
    "fieldtype": "HTML",
    "label": "Webhook"
+  },
+  {
+   "fieldname": "flows_section",
+   "fieldtype": "Section Break",
+   "label": "WhatsApp Flows",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "flow_private_key",
+   "fieldtype": "Password",
+   "label": "Flow Private Key",
+   "length": 255,
+   "read_only": 1,
+   "description": "Created with Generate Flow Keys; decrypts Meta's calls to the Flow endpoint."
+  },
+  {
+   "fieldname": "column_break_flow_keys",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "flow_public_key",
+   "fieldtype": "Long Text",
+   "label": "Flow Public Key",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
