@@ -1,0 +1,653 @@
+{
+ "app": "whatsapp_connect",
+ "charts": [
+  {
+   "chart_name": "WhatsApp Messages",
+   "label": "WhatsApp Messages"
+  }
+ ],
+ "content": "[{\"id\": \"37dbb3b4e9\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"Open WhatsApp Chats\", \"col\": 3}}, {\"id\": \"d1b11b687e\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"Unread WhatsApp Chats\", \"col\": 3}}, {\"id\": \"b71bffcee5\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"WhatsApp Received Today\", \"col\": 3}}, {\"id\": \"0d280be39c\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"WhatsApp Failed This Week\", \"col\": 3}}, {\"id\": \"8a3b4d0c4f\", \"type\": \"chart\", \"data\": {\"chart_name\": \"WhatsApp Messages\", \"col\": 12}}, {\"id\": \"e03c4c0fa6\", \"type\": \"spacer\", \"data\": {\"col\": 12}}, {\"id\": \"ebf87251d0\", \"type\": \"header\", \"data\": {\"text\": \"<span class=\\\"h4\\\"><b>Your Shortcuts</b></span>\", \"col\": 12}}, {\"id\": \"4a798b0153\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"WhatsApp Inbox\", \"col\": 3}}, {\"id\": \"3daa11ea17\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"WhatsApp Message\", \"col\": 3}}, {\"id\": \"b59c6227ad\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"WhatsApp Template\", \"col\": 3}}, {\"id\": \"ed182289e7\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"WhatsApp Campaign\", \"col\": 3}}, {\"id\": \"41e3af67d9\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"WhatsApp Notification\", \"col\": 3}}, {\"id\": \"75d26be1fa\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"WhatsApp Auto Reply\", \"col\": 3}}, {\"id\": \"538af7fa67\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"WhatsApp Delivery Summary\", \"col\": 3}}, {\"id\": \"e773d26efd\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"WhatsApp Setup\", \"col\": 3}}, {\"id\": \"544930c9a6\", \"type\": \"spacer\", \"data\": {\"col\": 12}}, {\"id\": \"6a92cc8477\", \"type\": \"header\", \"data\": {\"text\": \"<span class=\\\"h4\\\"><b>Reports &amp; Masters</b></span>\", \"col\": 12}}, {\"id\": \"ffe4c45e0b\", \"type\": \"card\", \"data\": {\"card_name\": \"Messaging\", \"col\": 4}}, {\"id\": \"6157d67fb0\", \"type\": \"card\", \"data\": {\"card_name\": \"Automation\", \"col\": 4}}, {\"id\": \"db7f271ada\", \"type\": \"card\", \"data\": {\"card_name\": \"Campaigns\", \"col\": 4}}, {\"id\": \"63501e4e8d\", \"type\": \"card\", \"data\": {\"card_name\": \"Reports\", \"col\": 4}}, {\"id\": \"148f48391b\", \"type\": \"card\", \"data\": {\"card_name\": \"Setup\", \"col\": 4}}]",
+ "creation": "2026-10-24 16:00:00.000000",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "message",
+ "idx": 0,
+ "is_hidden": 0,
+ "label": "WhatsApp Connect",
+ "links": [
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Messaging",
+   "link_count": 5,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "WhatsApp Inbox",
+   "link_count": 0,
+   "link_to": "whatsapp-inbox",
+   "link_type": "Page",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "WhatsApp Message",
+   "link_count": 0,
+   "link_to": "WhatsApp Message",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "WhatsApp Profile",
+   "link_count": 0,
+   "link_to": "WhatsApp Profile",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "WhatsApp Quick Reply",
+   "link_count": 0,
+   "link_to": "WhatsApp Quick Reply",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "WhatsApp Template",
+   "link_count": 0,
+   "link_to": "WhatsApp Template",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Automation",
+   "link_count": 5,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "WhatsApp Notification",
+   "link_count": 0,
+   "link_to": "WhatsApp Notification",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "WhatsApp Auto Reply",
+   "link_count": 0,
+   "link_to": "WhatsApp Auto Reply",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "WhatsApp Auto Reply Settings",
+   "link_count": 0,
+   "link_to": "WhatsApp Auto Reply Settings",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "WhatsApp Flow",
+   "link_count": 0,
+   "link_to": "WhatsApp Flow",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "WhatsApp Flow Response",
+   "link_count": 0,
+   "link_to": "WhatsApp Flow Response",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Campaigns",
+   "link_count": 2,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "WhatsApp Campaign",
+   "link_count": 0,
+   "link_to": "WhatsApp Campaign",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "WhatsApp Recipient List",
+   "link_count": 0,
+   "link_to": "WhatsApp Recipient List",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Reports",
+   "link_count": 2,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "WhatsApp Delivery Summary",
+   "link_count": 0,
+   "link_to": "WhatsApp Delivery Summary",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link",
+   "dependencies": "WhatsApp Message"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "WhatsApp Campaign Recipients",
+   "link_count": 0,
+   "link_to": "WhatsApp Campaign Recipients",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link",
+   "dependencies": "WhatsApp Message"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Setup",
+   "link_count": 4,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "WhatsApp Setup",
+   "link_count": 0,
+   "link_to": "whatsapp-setup",
+   "link_type": "Page",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "WhatsApp Account",
+   "link_count": 0,
+   "link_to": "WhatsApp Account",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "WhatsApp Settings",
+   "link_count": 0,
+   "link_to": "WhatsApp Settings",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "WhatsApp Log",
+   "link_count": 0,
+   "link_to": "WhatsApp Log",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2026-10-24 18:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "WhatsApp Connect Core",
+ "name": "WhatsApp Connect",
+ "number_cards": [
+  {
+   "label": "Open WhatsApp Chats",
+   "number_card_name": "Open WhatsApp Chats"
+  },
+  {
+   "label": "Unread WhatsApp Chats",
+   "number_card_name": "Unread WhatsApp Chats"
+  },
+  {
+   "label": "WhatsApp Received Today",
+   "number_card_name": "WhatsApp Received Today"
+  },
+  {
+   "label": "WhatsApp Failed This Week",
+   "number_card_name": "WhatsApp Failed This Week"
+  }
+ ],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "restrict_to_domain": "",
+ "roles": [
+  {
+   "role": "System Manager"
+  },
+  {
+   "role": "WhatsApp Manager"
+  },
+  {
+   "role": "WhatsApp User"
+  }
+ ],
+ "sequence_id": 50.0,
+ "shortcuts": [
+  {
+   "label": "WhatsApp Inbox",
+   "link_to": "whatsapp-inbox",
+   "type": "Page"
+  },
+  {
+   "label": "WhatsApp Message",
+   "link_to": "WhatsApp Message",
+   "type": "DocType",
+   "color": "Red",
+   "format": "{} Failed",
+   "stats_filter": "{\"status\": \"Failed\"}"
+  },
+  {
+   "label": "WhatsApp Template",
+   "link_to": "WhatsApp Template",
+   "type": "DocType"
+  },
+  {
+   "label": "WhatsApp Campaign",
+   "link_to": "WhatsApp Campaign",
+   "type": "DocType"
+  },
+  {
+   "label": "WhatsApp Notification",
+   "link_to": "WhatsApp Notification",
+   "type": "DocType"
+  },
+  {
+   "label": "WhatsApp Auto Reply",
+   "link_to": "WhatsApp Auto Reply",
+   "type": "DocType"
+  },
+  {
+   "label": "WhatsApp Delivery Summary",
+   "link_to": "WhatsApp Delivery Summary",
+   "type": "Report"
+  },
+  {
+   "label": "WhatsApp Setup",
+   "link_to": "whatsapp-setup",
+   "type": "Page"
+  }
+ ],
+ "sidebar_items": [
+  {
+   "child": 0,
+   "collapsible": 1,
+   "icon": "house",
+   "indent": 0,
+   "keep_closed": 0,
+   "label": "Home",
+   "link_to": "WhatsApp Connect",
+   "link_type": "Workspace",
+   "open_in_new_tab": 0,
+   "show_arrow": 0,
+   "type": "Link"
+  },
+  {
+   "child": 0,
+   "collapsible": 1,
+   "icon": "inbox",
+   "indent": 0,
+   "keep_closed": 0,
+   "label": "WhatsApp Inbox",
+   "link_to": "whatsapp-inbox",
+   "link_type": "Page",
+   "open_in_new_tab": 0,
+   "show_arrow": 0,
+   "type": "Link"
+  },
+  {
+   "child": 0,
+   "collapsible": 1,
+   "icon": "message-circle",
+   "indent": 1,
+   "keep_closed": 1,
+   "label": "Messaging",
+   "link_type": "DocType",
+   "open_in_new_tab": 0,
+   "show_arrow": 0,
+   "type": "Section Break"
+  },
+  {
+   "child": 1,
+   "collapsible": 1,
+   "icon": "",
+   "indent": 0,
+   "keep_closed": 0,
+   "label": "WhatsApp Inbox",
+   "link_to": "whatsapp-inbox",
+   "link_type": "Page",
+   "open_in_new_tab": 0,
+   "show_arrow": 0,
+   "type": "Link"
+  },
+  {
+   "child": 1,
+   "collapsible": 1,
+   "icon": "",
+   "indent": 0,
+   "keep_closed": 0,
+   "label": "WhatsApp Message",
+   "link_to": "WhatsApp Message",
+   "link_type": "DocType",
+   "open_in_new_tab": 0,
+   "show_arrow": 0,
+   "type": "Link"
+  },
+  {
+   "child": 1,
+   "collapsible": 1,
+   "icon": "",
+   "indent": 0,
+   "keep_closed": 0,
+   "label": "WhatsApp Profile",
+   "link_to": "WhatsApp Profile",
+   "link_type": "DocType",
+   "open_in_new_tab": 0,
+   "show_arrow": 0,
+   "type": "Link"
+  },
+  {
+   "child": 1,
+   "collapsible": 1,
+   "icon": "",
+   "indent": 0,
+   "keep_closed": 0,
+   "label": "WhatsApp Quick Reply",
+   "link_to": "WhatsApp Quick Reply",
+   "link_type": "DocType",
+   "open_in_new_tab": 0,
+   "show_arrow": 0,
+   "type": "Link"
+  },
+  {
+   "child": 1,
+   "collapsible": 1,
+   "icon": "",
+   "indent": 0,
+   "keep_closed": 0,
+   "label": "WhatsApp Template",
+   "link_to": "WhatsApp Template",
+   "link_type": "DocType",
+   "open_in_new_tab": 0,
+   "show_arrow": 0,
+   "type": "Link"
+  },
+  {
+   "child": 0,
+   "collapsible": 1,
+   "icon": "bot",
+   "indent": 1,
+   "keep_closed": 1,
+   "label": "Automation",
+   "link_type": "DocType",
+   "open_in_new_tab": 0,
+   "show_arrow": 0,
+   "type": "Section Break"
+  },
+  {
+   "child": 1,
+   "collapsible": 1,
+   "icon": "",
+   "indent": 0,
+   "keep_closed": 0,
+   "label": "WhatsApp Notification",
+   "link_to": "WhatsApp Notification",
+   "link_type": "DocType",
+   "open_in_new_tab": 0,
+   "show_arrow": 0,
+   "type": "Link"
+  },
+  {
+   "child": 1,
+   "collapsible": 1,
+   "icon": "",
+   "indent": 0,
+   "keep_closed": 0,
+   "label": "WhatsApp Auto Reply",
+   "link_to": "WhatsApp Auto Reply",
+   "link_type": "DocType",
+   "open_in_new_tab": 0,
+   "show_arrow": 0,
+   "type": "Link"
+  },
+  {
+   "child": 1,
+   "collapsible": 1,
+   "icon": "",
+   "indent": 0,
+   "keep_closed": 0,
+   "label": "WhatsApp Auto Reply Settings",
+   "link_to": "WhatsApp Auto Reply Settings",
+   "link_type": "DocType",
+   "open_in_new_tab": 0,
+   "show_arrow": 0,
+   "type": "Link"
+  },
+  {
+   "child": 1,
+   "collapsible": 1,
+   "icon": "",
+   "indent": 0,
+   "keep_closed": 0,
+   "label": "WhatsApp Flow",
+   "link_to": "WhatsApp Flow",
+   "link_type": "DocType",
+   "open_in_new_tab": 0,
+   "show_arrow": 0,
+   "type": "Link"
+  },
+  {
+   "child": 1,
+   "collapsible": 1,
+   "icon": "",
+   "indent": 0,
+   "keep_closed": 0,
+   "label": "WhatsApp Flow Response",
+   "link_to": "WhatsApp Flow Response",
+   "link_type": "DocType",
+   "open_in_new_tab": 0,
+   "show_arrow": 0,
+   "type": "Link"
+  },
+  {
+   "child": 0,
+   "collapsible": 1,
+   "icon": "megaphone",
+   "indent": 1,
+   "keep_closed": 1,
+   "label": "Campaigns",
+   "link_type": "DocType",
+   "open_in_new_tab": 0,
+   "show_arrow": 0,
+   "type": "Section Break"
+  },
+  {
+   "child": 1,
+   "collapsible": 1,
+   "icon": "",
+   "indent": 0,
+   "keep_closed": 0,
+   "label": "WhatsApp Campaign",
+   "link_to": "WhatsApp Campaign",
+   "link_type": "DocType",
+   "open_in_new_tab": 0,
+   "show_arrow": 0,
+   "type": "Link"
+  },
+  {
+   "child": 1,
+   "collapsible": 1,
+   "icon": "",
+   "indent": 0,
+   "keep_closed": 0,
+   "label": "WhatsApp Recipient List",
+   "link_to": "WhatsApp Recipient List",
+   "link_type": "DocType",
+   "open_in_new_tab": 0,
+   "show_arrow": 0,
+   "type": "Link"
+  },
+  {
+   "child": 0,
+   "collapsible": 1,
+   "icon": "sheet",
+   "indent": 1,
+   "keep_closed": 1,
+   "label": "Reports",
+   "link_type": "DocType",
+   "open_in_new_tab": 0,
+   "show_arrow": 0,
+   "type": "Section Break"
+  },
+  {
+   "child": 1,
+   "collapsible": 1,
+   "icon": "",
+   "indent": 0,
+   "keep_closed": 0,
+   "label": "WhatsApp Delivery Summary",
+   "link_to": "WhatsApp Delivery Summary",
+   "link_type": "Report",
+   "open_in_new_tab": 0,
+   "show_arrow": 0,
+   "type": "Link"
+  },
+  {
+   "child": 1,
+   "collapsible": 1,
+   "icon": "",
+   "indent": 0,
+   "keep_closed": 0,
+   "label": "WhatsApp Campaign Recipients",
+   "link_to": "WhatsApp Campaign Recipients",
+   "link_type": "Report",
+   "open_in_new_tab": 0,
+   "show_arrow": 0,
+   "type": "Link"
+  },
+  {
+   "child": 0,
+   "collapsible": 1,
+   "icon": "settings",
+   "indent": 1,
+   "keep_closed": 1,
+   "label": "Setup",
+   "link_type": "DocType",
+   "open_in_new_tab": 0,
+   "show_arrow": 0,
+   "type": "Section Break"
+  },
+  {
+   "child": 1,
+   "collapsible": 1,
+   "icon": "",
+   "indent": 0,
+   "keep_closed": 0,
+   "label": "WhatsApp Setup",
+   "link_to": "whatsapp-setup",
+   "link_type": "Page",
+   "open_in_new_tab": 0,
+   "show_arrow": 0,
+   "type": "Link"
+  },
+  {
+   "child": 1,
+   "collapsible": 1,
+   "icon": "",
+   "indent": 0,
+   "keep_closed": 0,
+   "label": "WhatsApp Account",
+   "link_to": "WhatsApp Account",
+   "link_type": "DocType",
+   "open_in_new_tab": 0,
+   "show_arrow": 0,
+   "type": "Link"
+  },
+  {
+   "child": 1,
+   "collapsible": 1,
+   "icon": "",
+   "indent": 0,
+   "keep_closed": 0,
+   "label": "WhatsApp Settings",
+   "link_to": "WhatsApp Settings",
+   "link_type": "DocType",
+   "open_in_new_tab": 0,
+   "show_arrow": 0,
+   "type": "Link"
+  },
+  {
+   "child": 1,
+   "collapsible": 1,
+   "icon": "",
+   "indent": 0,
+   "keep_closed": 0,
+   "label": "WhatsApp Log",
+   "link_to": "WhatsApp Log",
+   "link_type": "DocType",
+   "open_in_new_tab": 0,
+   "show_arrow": 0,
+   "type": "Link"
+  }
+ ],
+ "standard": 1,
+ "title": "WhatsApp Connect",
+ "type": "Workspace"
+}

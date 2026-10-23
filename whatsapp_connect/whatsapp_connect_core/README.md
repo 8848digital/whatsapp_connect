@@ -19,3 +19,10 @@ timeline.
 | WhatsApp Template | A message template, synced with Meta. |
 | WhatsApp Template Button | A button of a template (child table). |
 | WhatsApp Log | A Graph API call or webhook call. |
+
+## Workspace
+
+**WhatsApp Connect** (`/app/whatsapp-connect`): number cards (Open WhatsApp
+Chats, Unread WhatsApp Chats, WhatsApp Received Today, WhatsApp Failed This
+Week), the WhatsApp Messages chart, shortcuts, and link cards. Frappe 16 also
+gets the WhatsApp Connect sidebar (`sidebar/`).

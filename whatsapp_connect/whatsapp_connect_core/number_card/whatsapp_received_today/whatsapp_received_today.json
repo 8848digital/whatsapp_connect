@@ -1,0 +1,20 @@
+{
+ "creation": "2026-10-24 16:00:00.000000",
+ "docstatus": 0,
+ "doctype": "Number Card",
+ "document_type": "WhatsApp Message",
+ "filters_json": "[[\"WhatsApp Message\", \"direction\", \"=\", \"Incoming\"], [\"WhatsApp Message\", \"creation\", \"Timespan\", \"today\"]]",
+ "function": "Count",
+ "idx": 0,
+ "is_public": 1,
+ "is_standard": 1,
+ "label": "WhatsApp Received Today",
+ "modified": "2026-10-24 18:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "WhatsApp Connect Core",
+ "name": "WhatsApp Received Today",
+ "owner": "Administrator",
+ "show_percentage_stats": 0,
+ "stats_time_interval": "Daily",
+ "type": "Document Type"
+}
