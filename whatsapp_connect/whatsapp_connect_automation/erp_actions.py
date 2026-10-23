@@ -78,7 +78,7 @@ def outstanding_balance(message) -> str:
 			invoice.name,
 			fmt_money(invoice.outstanding_amount, currency=invoice.currency),
 			formatdate(invoice.due_date),
-			_(" (overdue)") if invoice.due_date and getdate(invoice.due_date) < today else "",
+			" " + _("(overdue)") if invoice.due_date and getdate(invoice.due_date) < today else "",
 		)
 		for invoice in invoices[:MAX_ROWS]
 	]
