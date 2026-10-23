@@ -7,7 +7,8 @@
   "require_signed_webhooks",
   "default_country_code",
   "column_break_logs",
-  "log_retention_days"
+  "log_retention_days",
+  "role_phone_source"
  ],
  "fields": [
   {
@@ -32,6 +33,14 @@
    "label": "Keep WhatsApp Logs for (Days)",
    "default": "30",
    "non_negative": 1
+  },
+  {
+   "fieldname": "role_phone_source",
+   "fieldtype": "Select",
+   "label": "Phone Number of Users",
+   "options": "User Mobile No\nEmployee Cell Number\nUser, then Employee\nEmployee, then User",
+   "default": "User Mobile No",
+   "description": "Where notifications to users with a role find each user's number."
   }
  ],
  "index_web_pages_for_search": 1,

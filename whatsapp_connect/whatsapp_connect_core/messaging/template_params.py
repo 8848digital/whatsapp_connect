@@ -84,7 +84,7 @@ def __body_values(template, doc) -> list[str]:
 	result = []
 	for index in range(count):
 		field = fields[index] if index < len(fields) else None
-		value = __field_value(doc, field) if field else None
+		value = field_value(doc, field) if field else None
 		result.append(
 			value if value not in (None, "") else (samples[index] if index < len(samples) else "")
 		)
@@ -104,7 +104,7 @@ def __header_values(template, doc) -> list[str]:
 	"""
 	if template.header_type != "Text" or not variable_count(template.header_text):
 		return []
-	value = __field_value(doc, template.header_field) if template.header_field else None
+	value = field_value(doc, template.header_field) if template.header_field else None
 	return [value if value not in (None, "") else (template.header_sample or "")]
 
 
@@ -120,7 +120,7 @@ def __button_value(button, doc, body: list[str]) -> str:
 	Returns:
 	        str: The button value.
 	"""
-	value = __field_value(doc, button.value_field) if button.value_field else None
+	value = field_value(doc, button.value_field) if button.value_field else None
 	if value not in (None, ""):
 		return value
 	if button.button_type == "Flow":
@@ -130,7 +130,7 @@ def __button_value(button, doc, body: list[str]) -> str:
 	return button.code_sample or ""
 
 
-def __field_value(doc, fieldname: str | None) -> str | None:
+def field_value(doc, fieldname: str | None) -> str | None:
 	"""
 	Read a document field as display text (currency and dates formatted).
 

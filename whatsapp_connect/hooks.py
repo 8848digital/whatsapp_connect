@@ -34,8 +34,35 @@ app_include_css = "/assets/whatsapp_connect/css/whatsapp_connect.css"
 
 before_install = "whatsapp_connect.install.before_install"
 
+_NOTIFICATION_TASKS = "whatsapp_connect.whatsapp_connect_notification.tasks"
+
 scheduler_events = {
-	"daily": ["whatsapp_connect.whatsapp_connect_core.tasks.clear_old_logs"],
+	"hourly": [f"{_NOTIFICATION_TASKS}.run_hourly"],
+	"daily": [
+		"whatsapp_connect.whatsapp_connect_core.tasks.clear_old_logs",
+		f"{_NOTIFICATION_TASKS}.run_daily",
+	],
+	"weekly": [f"{_NOTIFICATION_TASKS}.run_weekly"],
+	"monthly": [f"{_NOTIFICATION_TASKS}.run_monthly"],
+	"yearly": [f"{_NOTIFICATION_TASKS}.run_yearly"],
+}
+
+# WhatsApp Notifications on any doctype (whatsapp_connect_notification/notification_events.py).
+_NOTIFICATION_EVENT = (
+	"whatsapp_connect.whatsapp_connect_notification.notification_events.handle_event"
+)
+doc_events = {
+	"*": {
+		event: _NOTIFICATION_EVENT
+		for event in (
+			"after_insert",
+			"on_update",
+			"on_submit",
+			"on_cancel",
+			"on_trash",
+			"on_update_after_submit",
+		)
+	}
 }
 
 # WhatsApp messages as cards in the timeline of the document they belong to.

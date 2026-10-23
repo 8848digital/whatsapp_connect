@@ -17,6 +17,14 @@ try:
 except ImportError:  # Frappe 14
 	from frappe.tests.utils import FrappeTestCase as IntegrationTestCase
 
+# A minimal valid one-page PDF: Frappe 15+ parses uploaded PDFs.
+MINIMAL_PDF = (
+	b"%PDF-1.4\n1 0 obj<</Type/Catalog/Pages 2 0 R>>endobj\n"
+	b"2 0 obj<</Type/Pages/Kids[3 0 R]/Count 1>>endobj\n"
+	b"3 0 obj<</Type/Page/Parent 2 0 R/MediaBox[0 0 10 10]>>endobj\n"
+	b"xref\n0 4\n0000000000 65535 f \n0000000009 00000 n \n0000000052 00000 n \n0000000101 00000 n \n"
+	b"trailer<</Size 4/Root 1 0 R>>\nstartxref\n159\n%%EOF\n"
+)
 REQUESTS = "whatsapp_connect.whatsapp_connect_core.cloud_api.client.requests.request"
 APP_SECRET = "test-app-secret"
 
