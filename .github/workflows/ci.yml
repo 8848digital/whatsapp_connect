@@ -69,6 +69,7 @@ jobs:
       - name: Get apps
         working-directory: /home/runner/frappe-bench
         run: |
+          bench get-app --skip-assets --branch ${{ matrix.frappe }} payments
           bench get-app --skip-assets --branch ${{ matrix.frappe }} erpnext
           bench get-app --skip-assets whatsapp_connect $GITHUB_WORKSPACE
 
@@ -76,7 +77,7 @@ jobs:
         working-directory: /home/runner/frappe-bench
         run: |
           bench new-site test.localhost --db-root-username root --db-root-password root \
-            --admin-password admin --install-app erpnext --install-app whatsapp_connect
+            --admin-password admin --install-app payments --install-app erpnext --install-app whatsapp_connect
           bench --site test.localhost set-config allow_tests true
 
       # ERPNext 14 and 15 need a company for their test records; the v15 test
