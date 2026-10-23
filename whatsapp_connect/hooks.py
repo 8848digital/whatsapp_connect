@@ -17,7 +17,7 @@ add_to_apps_screen = [
 		"name": "whatsapp_connect",
 		"logo": "/assets/whatsapp_connect/images/logo.svg",
 		"title": "WhatsApp Connect",
-		"route": "/app/whatsapp-message",
+		"route": "/app/whatsapp-inbox",
 	}
 ]
 

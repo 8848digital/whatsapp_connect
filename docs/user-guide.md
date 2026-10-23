@@ -64,6 +64,26 @@ messages of its contacts.
 
 ![Contact timeline with WhatsApp messages](images/timeline.png)
 
+### Chat in the WhatsApp Inbox
+
+Open **WhatsApp Inbox** (type it in the search bar). The left side lists the
+conversations. A conversation starts when a customer writes, or when you send
+a template with **New Message**.
+
+1. Click a conversation to open it. Its unread count goes back to zero.
+2. Type a reply and press Enter. Use Shift+Enter for a new line.
+3. To answer one message, point at it and click **Reply**.
+4. To send a file, click the paper clip. The text you typed becomes its caption.
+5. To insert a saved answer, type / and its shortcut. Add saved answers in
+   **WhatsApp Quick Reply**.
+6. Click **Assign** to give the conversation to a colleague. Set the status to
+   **Pending** or **Closed** when you are done.
+
+WhatsApp allows free text only within 24 hours of the customer's last
+message. After that, click **Template** to send an approved template.
+
+![WhatsApp Inbox with a conversation open](images/inbox.png)
+
 ## 5. Send messages automatically
 
 Go to **WhatsApp Notification** and click **Add WhatsApp Notification**.

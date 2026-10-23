@@ -45,6 +45,20 @@
 | Opt-out | STOP / START keywords; templates, notifications and campaigns skip opted-out numbers. |
 | Reply window | The 24-hour customer service window is tracked per number. |
 
+## WhatsApp Inbox
+
+| Feature | Details |
+| ------- | ------- |
+| Conversation list | One row for each customer number that wrote, newest first, with the last message, time, unread count and assignee. Tabs for Open, Pending, Closed and All, with counts. Filter by assignee; search by name or number. |
+| Chat | Message history with day separators, delivery ticks, Meta's error and Retry on failed messages, quoted replies, reactions, images, video, audio and documents. |
+| Real time | New messages and status changes appear without a reload (realtime event to users who can read WhatsApp Messages). |
+| Reply | Text (Enter sends, Shift+Enter adds a line), reply to a message, files (image, video, audio or document by file type), templates with values for each variable. |
+| Reply window | Free text and files only within 24 hours of the customer's last message; a notice shows when the window closes within two hours or is closed. |
+| Quick replies | WhatsApp Quick Reply: type / and the shortcut to insert a saved answer. |
+| Status and assignment | Open, Pending, Closed. A message from the customer opens a closed conversation again. Assign to a user with a WhatsApp role; the user gets a notification. |
+| New message | Start a conversation with any number by sending a template. |
+| Link to the record | The chat header links to the Contact, Lead or Customer of the conversation; template variables are filled from it. |
+
 ## Send from any document
 
 | Feature | Details |

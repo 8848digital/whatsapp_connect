@@ -11,7 +11,15 @@
   "column_break_opt_out",
   "opted_out",
   "opted_out_on",
-  "last_incoming_at"
+  "last_incoming_at",
+  "conversation_section",
+  "conversation_status",
+  "assigned_to",
+  "column_break_conversation",
+  "unread_count",
+  "last_message_at",
+  "last_message_preview",
+  "last_message_direction"
  ],
  "fields": [
   {
@@ -67,11 +75,62 @@
    "label": "Last Message From Customer",
    "read_only": 1,
    "description": "Free-text replies are allowed for 24 hours after this time."
+  },
+  {
+   "fieldname": "conversation_section",
+   "fieldtype": "Section Break",
+   "label": "Conversation"
+  },
+  {
+   "fieldname": "conversation_status",
+   "fieldtype": "Select",
+   "label": "Conversation Status",
+   "options": "\nOpen\nPending\nClosed",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "description": "Open when the customer writes. Set in the WhatsApp Inbox."
+  },
+  {
+   "fieldname": "assigned_to",
+   "fieldtype": "Link",
+   "label": "Assigned To",
+   "options": "User",
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "column_break_conversation",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "unread_count",
+   "fieldtype": "Int",
+   "label": "Unread Messages",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_message_at",
+   "fieldtype": "Datetime",
+   "label": "Last Message At",
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "last_message_preview",
+   "fieldtype": "Data",
+   "label": "Last Message",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_message_direction",
+   "fieldtype": "Data",
+   "label": "Last Message Direction",
+   "read_only": 1,
+   "hidden": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-10-23 18:00:00.000000",
+ "modified": "2026-10-24 10:00:00.000000",
  "modified_by": "Administrator",
  "module": "WhatsApp Connect Core",
  "name": "WhatsApp Profile",
