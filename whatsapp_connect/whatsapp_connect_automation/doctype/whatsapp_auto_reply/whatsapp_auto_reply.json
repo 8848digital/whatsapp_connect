@@ -1,0 +1,230 @@
+{
+ "actions": [],
+ "creation": "2026-10-24 12:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "title",
+  "enabled",
+  "column_break_title",
+  "whatsapp_account",
+  "priority",
+  "trigger_section",
+  "trigger",
+  "match_type",
+  "column_break_trigger",
+  "keywords",
+  "reply_section",
+  "reply_type",
+  "reply_text",
+  "template",
+  "flow",
+  "action",
+  "options",
+  "list_button_label",
+  "limits_section",
+  "cooldown_minutes",
+  "column_break_limits",
+  "skip_when_assigned"
+ ],
+ "fields": [
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "label": "Title",
+   "reqd": 1,
+   "unique": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "Enabled",
+   "default": "1",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "column_break_title",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "whatsapp_account",
+   "fieldtype": "Link",
+   "label": "WhatsApp Account",
+   "options": "WhatsApp Account",
+   "description": "Empty: all accounts."
+  },
+  {
+   "fieldname": "priority",
+   "fieldtype": "Int",
+   "label": "Priority",
+   "default": "0",
+   "description": "When two rules match, the higher number answers."
+  },
+  {
+   "fieldname": "trigger_section",
+   "fieldtype": "Section Break",
+   "label": "When"
+  },
+  {
+   "fieldname": "trigger",
+   "fieldtype": "Select",
+   "label": "Trigger",
+   "reqd": 1,
+   "default": "Keyword",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "options": "Keyword\nButton Reply\nFirst Message\nOutside Business Hours\nAny Other Message",
+   "description": "Keyword and Button Reply rules answer first. First Message and Outside Business Hours answer when no keyword matches. Any Other Message answers when nothing else does."
+  },
+  {
+   "fieldname": "match_type",
+   "fieldtype": "Select",
+   "label": "Match",
+   "options": "Whole Message\nContains\nStarts With",
+   "default": "Whole Message",
+   "depends_on": "eval:doc.trigger=='Keyword'"
+  },
+  {
+   "fieldname": "column_break_trigger",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "keywords",
+   "fieldtype": "Small Text",
+   "label": "Keywords",
+   "depends_on": "eval:in_list(['Keyword','Button Reply'], doc.trigger)",
+   "mandatory_depends_on": "eval:in_list(['Keyword','Button Reply'], doc.trigger)",
+   "description": "One for each line. Case does not matter. For Button Reply: the button ID or its text."
+  },
+  {
+   "fieldname": "reply_section",
+   "fieldtype": "Section Break",
+   "label": "Reply"
+  },
+  {
+   "fieldname": "reply_type",
+   "fieldtype": "Select",
+   "label": "Reply With",
+   "reqd": 1,
+   "default": "Text",
+   "in_list_view": 1,
+   "options": "Text\nButtons or List\nTemplate\nFlow\nAction"
+  },
+  {
+   "fieldname": "reply_text",
+   "fieldtype": "Small Text",
+   "label": "Text",
+   "depends_on": "eval:in_list(['Text','Buttons or List','Flow','Action'], doc.reply_type)",
+   "mandatory_depends_on": "eval:in_list(['Text','Buttons or List'], doc.reply_type)",
+   "description": "For a Flow: the text above its button. For an Action: sent before the result. WhatsApp formatting works: *bold*, _italic_."
+  },
+  {
+   "fieldname": "template",
+   "fieldtype": "Link",
+   "label": "Template",
+   "options": "WhatsApp Template",
+   "depends_on": "eval:doc.reply_type=='Template'",
+   "mandatory_depends_on": "eval:doc.reply_type=='Template'"
+  },
+  {
+   "fieldname": "flow",
+   "fieldtype": "Link",
+   "label": "Flow",
+   "options": "WhatsApp Flow",
+   "depends_on": "eval:doc.reply_type=='Flow'",
+   "mandatory_depends_on": "eval:doc.reply_type=='Flow'"
+  },
+  {
+   "fieldname": "action",
+   "fieldtype": "Select",
+   "label": "Action",
+   "depends_on": "eval:doc.reply_type=='Action'",
+   "mandatory_depends_on": "eval:doc.reply_type=='Action'",
+   "description": "Reads data of the customer that wrote, found by the phone number. Other apps add actions with the whatsapp_connect_auto_reply_actions hook."
+  },
+  {
+   "fieldname": "options",
+   "fieldtype": "Table",
+   "label": "Options",
+   "options": "WhatsApp Auto Reply Option",
+   "depends_on": "eval:doc.reply_type=='Buttons or List'",
+   "description": "Up to 3 options are buttons; 4 to 10 options are a list. Make Button Reply rules for the option IDs to answer each one."
+  },
+  {
+   "fieldname": "list_button_label",
+   "fieldtype": "Data",
+   "label": "List Button",
+   "depends_on": "eval:doc.reply_type=='Buttons or List'",
+   "description": "Text of the button that opens a list. Default: Options."
+  },
+  {
+   "fieldname": "limits_section",
+   "fieldtype": "Section Break",
+   "label": "Limits"
+  },
+  {
+   "fieldname": "cooldown_minutes",
+   "fieldtype": "Int",
+   "label": "Do Not Answer Again Within (Minutes)",
+   "default": "0",
+   "description": "For example 60 for an away message. 0 answers every time."
+  },
+  {
+   "fieldname": "column_break_limits",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "skip_when_assigned",
+   "fieldtype": "Check",
+   "label": "Stop When an Agent Has the Conversation",
+   "default": "1",
+   "description": "No answer when the WhatsApp Inbox conversation is assigned to a user."
+  }
+ ],
+ "links": [],
+ "modified": "2026-10-24 12:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "WhatsApp Connect Automation",
+ "name": "WhatsApp Auto Reply",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1
+  },
+  {
+   "role": "WhatsApp Manager",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1
+  },
+  {
+   "role": "WhatsApp User",
+   "read": 1,
+   "report": 1,
+   "print": 1
+  }
+ ],
+ "sort_field": "priority",
+ "sort_order": "DESC",
+ "states": [],
+ "autoname": "field:title",
+ "naming_rule": "By fieldname",
+ "title_field": "title",
+ "track_changes": 1
+}

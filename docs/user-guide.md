@@ -97,6 +97,31 @@ Change this in **WhatsApp Settings** > **Notify Agents of New Messages**.
 
 ![WhatsApp Inbox with a conversation open](images/inbox.png)
 
+### Answer common questions automatically
+
+Go to **WhatsApp Auto Reply** and click **Add WhatsApp Auto Reply**.
+
+1. Enter a **Title**, for example "Opening hours".
+2. Select the **Trigger**. For **Keyword**, type the words, one for each line,
+   for example "hours" and "timings".
+3. Select **Reply With** and enter the reply:
+   - **Text**: the answer.
+   - **Buttons or List**: the text and the options. Make a **Button Reply** rule
+     with an option's ID to answer that option.
+   - **Template** or **Flow**: select it.
+   - **Action**: **Order Status** or **Outstanding Balance** of the customer
+     with this number.
+4. Save.
+
+For a welcome message, use the trigger **First Message**. For an away
+message, use **Outside Business Hours** and set the hours in **WhatsApp Auto
+Reply Settings**. Set **Do Not Answer Again Within** to 60, so a customer who
+writes three times at night gets one answer.
+
+Auto-replies stop when the conversation is assigned to an agent in the
+WhatsApp Inbox. To stop all of them, select **Pause All Auto-Replies** in
+WhatsApp Auto Reply Settings.
+
 ## 5. Send messages automatically
 
 Go to **WhatsApp Notification** and click **Add WhatsApp Notification**.

@@ -68,6 +68,8 @@ Something did not work? Each setup step shows the reason; see
 | WhatsApp Message | Yes | Every message sent or received, with its delivery status and Meta's error. |
 | WhatsApp Profile | Yes | One customer number: WhatsApp name, linked Contact, opt-out state, last message time, and its conversation in the WhatsApp Inbox (status, assignee, unread count). |
 | WhatsApp Quick Reply | Yes | A saved answer that agents insert in the WhatsApp Inbox. |
+| WhatsApp Auto Reply | Yes | A rule that answers incoming messages: keyword, button, welcome, away or fallback. |
+| WhatsApp Auto Reply Settings | Yes | Business hours and a switch that pauses all auto-replies. |
 | WhatsApp Template | Yes | Message templates approved by Meta, with variables filled from document fields. |
 | WhatsApp Notification | Yes | Sends a template automatically on a document event, a date or a schedule. |
 | WhatsApp Recipient List | Yes | A reusable list of numbers with per-recipient values. |
@@ -98,6 +100,11 @@ Something did not work? Each setup step shows the reason; see
   new messages; a click opens the chat.
 
   ![WhatsApp Inbox with a conversation open](docs/images/inbox.png)
+
+- **Auto-replies.** Answer keywords and button taps, send a welcome message
+  and an away message outside business hours, and reply with ERP data such
+  as order status or the outstanding balance. Rules stop when an agent takes
+  the conversation.
 
 - **Conversations in the timeline.** Messages appear in the timeline of their
   document; incoming messages are linked to the Contact, Lead or Customer
