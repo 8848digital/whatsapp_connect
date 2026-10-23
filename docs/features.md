@@ -73,6 +73,16 @@
 | Limits | Do not answer the same number again within a set time. No answer when an agent has the conversation. STOP and START are not answered. Pause all auto-replies in one place. |
 | Background | Answers are sent in a background job; a failed answer is logged and the next rule still answers. |
 
+## Frappe CRM
+
+| Feature | Details |
+| ------- | ------- |
+| WhatsApp tab | CRM Leads and CRM Deals show the messages of their numbers (phone fields, contacts, the lead of a deal) with replies, reactions and delivery state. |
+| Send | Text, files (image, video, audio, document), reactions and approved templates (variables from the CRM record). Free text only inside the 24-hour window. |
+| Templates | The CRM template picker lists the approved WhatsApp Templates. |
+| Compatibility | Frappe CRM's own hooks on WhatsApp Message work, so saving messages does not fail and CRM notifies the users assigned to a CRM Lead or Deal. |
+| Access | Users with Sales User, Sales Manager or a WhatsApp role, for the records they can open. |
+
 ## Send from any document
 
 | Feature | Details |

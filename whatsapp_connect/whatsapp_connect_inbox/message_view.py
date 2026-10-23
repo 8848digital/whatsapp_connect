@@ -9,6 +9,7 @@ import frappe
 
 MESSAGE_FIELDS = [
 	"name",
+	"phone_number",
 	"direction",
 	"message_type",
 	"status",

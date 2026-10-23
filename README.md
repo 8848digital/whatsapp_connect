@@ -106,6 +106,12 @@ Something did not work? Each setup step shows the reason; see
   as order status or the outstanding balance. Rules stop when an agent takes
   the conversation.
 
+- **Frappe CRM.** The WhatsApp tab of CRM Leads and CRM Deals shows the
+  conversation and sends text, files, reactions and templates. Incoming
+  messages match CRM Leads by number.
+
+  ![Frappe CRM Lead with the WhatsApp tab](docs/images/crm.png)
+
 - **Conversations in the timeline.** Messages appear in the timeline of their
   document; incoming messages are linked to the Contact, Lead or Customer
   with the same number. Customers, suppliers and leads also show their
@@ -163,6 +169,7 @@ guide in [docs/user-guide.md](docs/user-guide.md).
 - **Meta webhooks**: set by the setup page; manual values in [SETUP.md](./SETUP.md#webhooks)
 - **WhatsApp Flows data endpoint** (optional): see [SETUP.md](./SETUP.md#whatsapp-flows-data-endpoint-optional)
 - **WhatsApp hub** (8848 Digital): see [docs/hub-setup.md](docs/hub-setup.md)
+- **Frappe CRM** (optional, Frappe 15 and 16): the WhatsApp tab of CRM Leads and Deals uses WhatsApp Connect; see [SETUP.md](./SETUP.md#frappe-crm-optional)
 
 ## Installation
 
