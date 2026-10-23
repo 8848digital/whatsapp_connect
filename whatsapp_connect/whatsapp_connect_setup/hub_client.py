@@ -135,7 +135,7 @@ def call_hub(method: str, payload: dict) -> dict:
 	try:
 		response = requests.post(hub_url + HUB_API + method, json=payload, timeout=TIMEOUT_SECONDS)
 	except requests.RequestException as exc:
-		frappe.throw(_("Could not reach the WhatsApp hub {0}: {1}").format(hub_url, exc))
+		frappe.throw(_("Could not reach the WhatsApp hub {0}: {1}").format(hub_url, str(exc)))
 	answer = __decode(response)
 	envelope = answer.get("message") if isinstance(answer.get("message"), dict) else {}
 	if not response.ok or not envelope.get("status"):

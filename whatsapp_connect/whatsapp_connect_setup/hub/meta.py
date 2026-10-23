@@ -31,7 +31,7 @@ def exchange_code(settings, code: str) -> str:
 	try:
 		answer = requests.get(url, params=params, timeout=30).json()
 	except (requests.RequestException, ValueError) as exc:
-		frappe.throw(_("Could not reach Meta: {0}").format(exc))
+		frappe.throw(_("Could not reach Meta: {0}").format(str(exc)))
 	if not answer.get("access_token"):
 		frappe.throw(_("Meta refused the code: {0}").format((answer.get("error") or {}).get("message")))
 	return answer["access_token"]
