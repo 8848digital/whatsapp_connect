@@ -97,6 +97,7 @@
 | Create and submit | Header (text, image, document, video), body with variables and samples, footer, buttons; submitted to Meta for approval; media header samples uploaded with Meta's resumable upload. |
 | Buttons | Quick reply, phone number, URL (static or dynamic), copy code, one-time password, flow, catalog, multi-product. |
 | Field mapping | Variables, header and dynamic buttons filled from document fields; values cleaned for Meta's rules. |
+| Payment links | `payment_link` fills a variable with the payment URL of an ERPNext Payment Request for a Sales Invoice, Sales Order or Payment Request (made, or an open one reused). `payment_link_token` fills a dynamic URL button `https://<site>/whatsapp_pay?t={{1}}`: a signed token that opens the payment page. Previews make no Payment Request. Apps add computed values with the `whatsapp_connect_value_providers` hook. |
 | Sync and status | Sync all templates from Meta; status and rejection reason from the webhook. |
 | Delete | Deleted in Meta; the local delete goes on when Meta refuses. |
 | Live preview | The form shows the message as WhatsApp shows it. |

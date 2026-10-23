@@ -6,3 +6,4 @@ WhatsApp Connect Setup
 WhatsApp Connect Inbox
 WhatsApp Connect Automation
 WhatsApp Connect CRM
+WhatsApp Connect Payment

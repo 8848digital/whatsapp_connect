@@ -164,6 +164,14 @@ the account's public key, which the setup creates (**Create Flow keys**).
 **How to test:** open the flow's preview link (Meta > **Open Preview**) and
 go through the screens.
 
+## Payment links (optional)
+
+`payment_link` and `payment_link_token` in a template mapping need ERPNext and
+a **Payment Gateway Account** (for example with the payments app and
+Razorpay or Stripe). WhatsApp Connect makes the Payment Request with ERPNext
+and does not send its email. The Pay now button uses the page
+`/whatsapp_pay` on your site, which must be reachable on the internet.
+
 ## Frappe CRM (optional)
 
 Frappe CRM works on Frappe 15 and 16. WhatsApp Connect serves the WhatsApp tab
