@@ -1,0 +1,39 @@
+name: Bug report
+description: Something does not work as expected
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: Do not include access tokens, App Secrets or customer phone numbers. Report security problems privately (see SECURITY.md).
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you did, what you expected, and what happened instead.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+    validations:
+      required: true
+  - type: textarea
+    id: error
+    attributes:
+      label: Error message
+      description: From the Error Log, WhatsApp Log or the browser console.
+      render: text
+  - type: input
+    id: version
+    attributes:
+      label: WhatsApp Connect version
+    validations:
+      required: true
+  - type: dropdown
+    id: frappe
+    attributes:
+      label: Frappe version
+      options: ["14", "15", "16"]
+    validations:
+      required: true

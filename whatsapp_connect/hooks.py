@@ -9,6 +9,17 @@ app_publisher = "8848 Digital LLP"
 app_description = "WhatsApp Business messaging for Frappe and ERPNext through the Meta Cloud API"
 app_email = "satya@8848digital.com"
 app_license = "mit"
+app_logo_url = "/assets/whatsapp_connect/images/logo.svg"
+
+# Apps screen (Frappe 15+).
+add_to_apps_screen = [
+	{
+		"name": "whatsapp_connect",
+		"logo": "/assets/whatsapp_connect/images/logo.svg",
+		"title": "WhatsApp Connect",
+		"route": "/app/whatsapp-message",
+	}
+]
 
 custom_fixtures = [
 	{
