@@ -1,0 +1,74 @@
+{
+ "actions": [],
+ "creation": "2026-10-24 12:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "paused",
+  "hours_section",
+  "business_hours"
+ ],
+ "fields": [
+  {
+   "fieldname": "paused",
+   "fieldtype": "Check",
+   "label": "Pause All Auto-Replies",
+   "description": "Select to stop all auto-replies, for example during a holiday."
+  },
+  {
+   "fieldname": "hours_section",
+   "fieldtype": "Section Break",
+   "label": "Business Hours",
+   "description": "In the system time zone. A day without a row is closed. With no rows at all, you are always open."
+  },
+  {
+   "fieldname": "business_hours",
+   "fieldtype": "Table",
+   "label": "Business Hours",
+   "options": "WhatsApp Business Hour"
+  }
+ ],
+ "links": [],
+ "modified": "2026-10-24 12:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "WhatsApp Connect Automation",
+ "name": "WhatsApp Auto Reply Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1
+  },
+  {
+   "role": "WhatsApp Manager",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1
+  },
+  {
+   "role": "WhatsApp User",
+   "read": 1,
+   "report": 1,
+   "print": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "issingle": 1,
+ "track_changes": 1
+}

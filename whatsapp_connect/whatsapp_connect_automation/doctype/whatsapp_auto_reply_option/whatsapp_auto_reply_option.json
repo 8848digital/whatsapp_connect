@@ -1,0 +1,50 @@
+{
+ "actions": [],
+ "creation": "2026-10-24 12:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "title",
+  "option_id",
+  "description"
+ ],
+ "fields": [
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "label": "Title",
+   "reqd": 1,
+   "in_list_view": 1,
+   "columns": 3,
+   "description": "Up to 20 characters for buttons, 24 for list rows."
+  },
+  {
+   "fieldname": "option_id",
+   "fieldtype": "Data",
+   "label": "ID",
+   "in_list_view": 1,
+   "columns": 3,
+   "description": "Sent back when the customer taps it. Default: made from the title."
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Data",
+   "label": "Description",
+   "in_list_view": 1,
+   "columns": 4,
+   "description": "List rows only."
+  }
+ ],
+ "links": [],
+ "modified": "2026-10-24 12:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "WhatsApp Connect Automation",
+ "name": "WhatsApp Auto Reply Option",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "istable": 1,
+ "editable_grid": 1
+}

@@ -1,0 +1,47 @@
+{
+ "actions": [],
+ "creation": "2026-10-24 12:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "day",
+  "opens_at",
+  "closes_at"
+ ],
+ "fields": [
+  {
+   "fieldname": "day",
+   "fieldtype": "Select",
+   "label": "Day",
+   "reqd": 1,
+   "in_list_view": 1,
+   "options": "Monday\nTuesday\nWednesday\nThursday\nFriday\nSaturday\nSunday"
+  },
+  {
+   "fieldname": "opens_at",
+   "fieldtype": "Time",
+   "label": "Opens At",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "closes_at",
+   "fieldtype": "Time",
+   "label": "Closes At",
+   "reqd": 1,
+   "in_list_view": 1
+  }
+ ],
+ "links": [],
+ "modified": "2026-10-24 12:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "WhatsApp Connect Automation",
+ "name": "WhatsApp Business Hour",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "istable": 1,
+ "editable_grid": 1
+}

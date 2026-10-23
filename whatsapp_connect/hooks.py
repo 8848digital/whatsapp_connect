@@ -33,6 +33,8 @@ custom_fixtures = [
 					"WhatsApp Connect Campaign",
 					"WhatsApp Connect Flow",
 					"WhatsApp Connect Setup",
+					"WhatsApp Connect Inbox",
+					"WhatsApp Connect Automation",
 				],
 			]
 		},
@@ -99,7 +101,14 @@ whatsapp_connect_incoming_handlers = [
 	"whatsapp_connect.whatsapp_connect_core.messaging.lead_capture.handle_incoming",
 	"whatsapp_connect.whatsapp_connect_flow.responses.handle_incoming",
 	"whatsapp_connect.whatsapp_connect_inbox.notifications.handle_incoming",
+	"whatsapp_connect.whatsapp_connect_automation.auto_reply.handle_incoming",
 ]
+# Auto-reply actions: {"<name>": "<dotted.path>"}; the function gets the incoming
+# WhatsApp Message and returns the reply text (whatsapp_connect_automation/actions.py).
+whatsapp_connect_auto_reply_actions = {
+	"Order Status": "whatsapp_connect.whatsapp_connect_automation.erp_actions.order_status",
+	"Outstanding Balance": "whatsapp_connect.whatsapp_connect_automation.erp_actions.outstanding_balance",
+}
 
 # after_request is not wired: the webhook verification and the Flow endpoint
 # must answer Meta in plain text, which the response formatter would try to

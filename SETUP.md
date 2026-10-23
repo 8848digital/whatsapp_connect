@@ -100,6 +100,13 @@ every call to Meta and every webhook call.
 | Lead Owner | Link (User) | No | Owner of new Leads. Their WhatsApp Inbox conversation is assigned to this user. |
 | Notify Agents of New Messages | Select | No | Who gets a popup and a desk notification for a new message: the assigned user, else all agents (default); the assigned user only; or nobody. Agents are users with the WhatsApp Manager or WhatsApp User role. |
 
+**WhatsApp Auto Reply Settings** (optional, for away messages):
+
+| Field | Type | Mandatory | Notes |
+| ----- | ---- | --------- | ----- |
+| Pause All Auto-Replies | Check | No | Stops all WhatsApp Auto Reply rules. |
+| Business Hours | Table | For away messages | Day, opens at, closes at; system time zone. A day without a row is closed. With no rows, away messages are never sent. |
+
 **WhatsApp Account** (one per number; the setup page fills it):
 
 | Field | Notes |

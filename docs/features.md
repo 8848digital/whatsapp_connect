@@ -61,6 +61,18 @@
 | Notifications | For each new message: a popup on any desk page, or a browser notification when the tab is in the background (after **Turn on desktop notifications** in the inbox). The first unread message of a conversation also adds a desk notification (bell icon). Clicking any of them opens the chat. Goes to the assigned user, else to all agents; set in WhatsApp Settings. |
 | Link to the record | The chat header links to the Contact, Lead or Customer of the conversation; template variables are filled from it. |
 
+## Auto-replies
+
+| Feature | Details |
+| ------- | ------- |
+| Rules | WhatsApp Auto Reply: a trigger and a reply, for one account or all, with a priority. |
+| Triggers | Keyword (whole message, contains, starts with; case does not matter), button or list reply (ID or text), first message from a number, message outside business hours, any other message. Keyword and button rules answer first. Without one, the welcome and the away rule both answer. Without those, the "any other message" rule answers. |
+| Replies | Text, reply buttons (up to 3) or a list (up to 10), an approved template, a Flow, or an action. |
+| Actions | Order Status (open Sales Orders with progress and delivery date) and Outstanding Balance (unpaid Sales Invoices and the total) of the Customer that wrote, found by the number. Other apps add actions with the `whatsapp_connect_auto_reply_actions` hook. |
+| Business hours | WhatsApp Auto Reply Settings: hours for each day, in the system time zone. |
+| Limits | Do not answer the same number again within a set time. No answer when an agent has the conversation. STOP and START are not answered. Pause all auto-replies in one place. |
+| Background | Answers are sent in a background job; a failed answer is logged and the next rule still answers. |
+
 ## Send from any document
 
 | Feature | Details |
